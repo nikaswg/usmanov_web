@@ -1,0 +1,158 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\\u041D\u0438\u043A\u0438\u0442\u0430\\Downloads\\lab5\\ClientApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{70655003-7CA6-480B-B0FD-94BFA68E3EEF}|..\\ClientData\\ClientData.csproj|c:\\users\\\u043D\u0438\u043A\u0438\u0442\u0430\\downloads\\lab5\\clientdata\\clientdataprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{339BD449-DECF-4855-B44D-AE23AF09BB43}|..\\ClientAppTests\\ClientAppTests.csproj|c:\\users\\\u043D\u0438\u043A\u0438\u0442\u0430\\downloads\\lab5\\clientapptests\\clientapptests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{339BD449-DECF-4855-B44D-AE23AF09BB43}|..\\ClientAppTests\\ClientAppTests.csproj|c:\\users\\\u043D\u0438\u043A\u0438\u0442\u0430\\downloads\\lab5\\clientapptests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8045A3BA-8579-4DEC-BA2F-12605448549E}|..\\ConsoleDemonstration\\ConsoleDemonstration.csproj|c:\\users\\\u043D\u0438\u043A\u0438\u0442\u0430\\downloads\\lab5\\consoledemonstration\\consolemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23B2A42F-1F9D-428A-B77D-408735AE7041}|ClientApp.csproj|C:\\Users\\\u041D\u0438\u043A\u0438\u0442\u0430\\Downloads\\lab5\\ClientApp\\clientapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{23B2A42F-1F9D-428A-B77D-408735AE7041}|ClientApp.csproj|solutionrelative:clientapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23B2A42F-1F9D-428A-B77D-408735AE7041}|ClientApp.csproj|C:\\Users\\\u041D\u0438\u043A\u0438\u0442\u0430\\Downloads\\lab5\\ClientApp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23B2A42F-1F9D-428A-B77D-408735AE7041}|ClientApp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70655003-7CA6-480B-B0FD-94BFA68E3EEF}|..\\ClientData\\ClientData.csproj|c:\\users\\\u043D\u0438\u043A\u0438\u0442\u0430\\downloads\\lab5\\clientdata\\clientparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70655003-7CA6-480B-B0FD-94BFA68E3EEF}|..\\ClientData\\ClientData.csproj|c:\\users\\\u043D\u0438\u043A\u0438\u0442\u0430\\downloads\\lab5\\clientdata\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{269a02dc-6af8-11d3-bdc4-00c04f688e50}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ClientDataProvider.cs",
+              "DocumentMoniker": "C:\\Users\\\u041D\u0438\u043A\u0438\u0442\u0430\\Downloads\\lab5\\ClientData\\ClientDataProvider.cs",
+              "RelativeDocumentMoniker": "..\\ClientData\\ClientDataProvider.cs",
+              "ToolTip": "C:\\Users\\\u041D\u0438\u043A\u0438\u0442\u0430\\Downloads\\lab5\\ClientData\\ClientDataProvider.cs",
+              "RelativeToolTip": "..\\ClientData\\ClientDataProvider.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T18:54:59.286Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ClientAppTests.csproj",
+              "DocumentMoniker": "C:\\Users\\\u041D\u0438\u043A\u0438\u0442\u0430\\Downloads\\lab5\\ClientAppTests\\ClientAppTests.csproj",
+              "RelativeDocumentMoniker": "..\\ClientAppTests\\ClientAppTests.csproj",
+              "ToolTip": "C:\\Users\\\u041D\u0438\u043A\u0438\u0442\u0430\\Downloads\\lab5\\ClientAppTests\\ClientAppTests.csproj",
+              "RelativeToolTip": "..\\ClientAppTests\\ClientAppTests.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-01-27T19:09:18.337Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UnitTest1.cs",
+              "DocumentMoniker": "C:\\Users\\\u041D\u0438\u043A\u0438\u0442\u0430\\Downloads\\lab5\\ClientAppTests\\UnitTest1.cs",
+              "RelativeDocumentMoniker": "..\\ClientAppTests\\UnitTest1.cs",
+              "ToolTip": "C:\\Users\\\u041D\u0438\u043A\u0438\u0442\u0430\\Downloads\\lab5\\ClientAppTests\\UnitTest1.cs",
+              "RelativeToolTip": "..\\ClientAppTests\\UnitTest1.cs",
+              "ViewState": "AQIAADsAAAAAAAAAAAA9wFUAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T19:08:47.124Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ConsoleMenu.cs",
+              "DocumentMoniker": "C:\\Users\\\u041D\u0438\u043A\u0438\u0442\u0430\\Downloads\\lab5\\ConsoleDemonstration\\ConsoleMenu.cs",
+              "RelativeDocumentMoniker": "..\\ConsoleDemonstration\\ConsoleMenu.cs",
+              "ToolTip": "C:\\Users\\\u041D\u0438\u043A\u0438\u0442\u0430\\Downloads\\lab5\\ConsoleDemonstration\\ConsoleMenu.cs",
+              "RelativeToolTip": "..\\ConsoleDemonstration\\ConsoleMenu.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T19:02:30.635Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ClientApp.csproj",
+              "DocumentMoniker": "C:\\Users\\\u041D\u0438\u043A\u0438\u0442\u0430\\Downloads\\lab5\\ClientApp\\ClientApp.csproj",
+              "RelativeDocumentMoniker": "ClientApp.csproj",
+              "ToolTip": "C:\\Users\\\u041D\u0438\u043A\u0438\u0442\u0430\\Downloads\\lab5\\ClientApp\\ClientApp.csproj",
+              "RelativeToolTip": "ClientApp.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-01-27T18:42:51.051Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\\u041D\u0438\u043A\u0438\u0442\u0430\\Downloads\\lab5\\ClientApp\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\\u041D\u0438\u043A\u0438\u0442\u0430\\Downloads\\lab5\\ClientApp\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T18:42:59.833Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ClientParser.cs",
+              "DocumentMoniker": "C:\\Users\\\u041D\u0438\u043A\u0438\u0442\u0430\\Downloads\\lab5\\ClientData\\ClientParser.cs",
+              "RelativeDocumentMoniker": "..\\ClientData\\ClientParser.cs",
+              "ToolTip": "C:\\Users\\\u041D\u0438\u043A\u0438\u0442\u0430\\Downloads\\lab5\\ClientData\\ClientParser.cs",
+              "RelativeToolTip": "..\\ClientData\\ClientParser.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T18:40:43.852Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Client.cs",
+              "DocumentMoniker": "C:\\Users\\\u041D\u0438\u043A\u0438\u0442\u0430\\Downloads\\lab5\\ClientData\\Client.cs",
+              "RelativeDocumentMoniker": "..\\ClientData\\Client.cs",
+              "ToolTip": "C:\\Users\\\u041D\u0438\u043A\u0438\u0442\u0430\\Downloads\\lab5\\ClientData\\Client.cs",
+              "RelativeToolTip": "..\\ClientData\\Client.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T18:37:29.185Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

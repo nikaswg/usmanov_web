@@ -1,0 +1,15 @@
+C:\Users\Никита\Downloads\lab5\ConsoleDemonstration\bin\Debug\net8.0\ConsoleDemonstration.deps.json
+C:\Users\Никита\Downloads\lab5\ConsoleDemonstration\bin\Debug\net8.0\ConsoleDemonstration.dll
+C:\Users\Никита\Downloads\lab5\ConsoleDemonstration\bin\Debug\net8.0\ConsoleDemonstration.pdb
+C:\Users\Никита\Downloads\lab5\ConsoleDemonstration\bin\Debug\net8.0\ClientData.dll
+C:\Users\Никита\Downloads\lab5\ConsoleDemonstration\bin\Debug\net8.0\ClientData.pdb
+C:\Users\Никита\Downloads\lab5\ConsoleDemonstration\obj\Debug\net8.0\ConsoleDemonstration.csproj.AssemblyReference.cache
+C:\Users\Никита\Downloads\lab5\ConsoleDemonstration\obj\Debug\net8.0\ConsoleDemonstration.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Никита\Downloads\lab5\ConsoleDemonstration\obj\Debug\net8.0\ConsoleDemonstration.AssemblyInfoInputs.cache
+C:\Users\Никита\Downloads\lab5\ConsoleDemonstration\obj\Debug\net8.0\ConsoleDemonstration.AssemblyInfo.cs
+C:\Users\Никита\Downloads\lab5\ConsoleDemonstration\obj\Debug\net8.0\ConsoleDemonstration.csproj.CoreCompileInputs.cache
+C:\Users\Никита\Downloads\lab5\ConsoleDemonstration\obj\Debug\net8.0\ConsoleD.3AF99C8F.Up2Date
+C:\Users\Никита\Downloads\lab5\ConsoleDemonstration\obj\Debug\net8.0\ConsoleDemonstration.dll
+C:\Users\Никита\Downloads\lab5\ConsoleDemonstration\obj\Debug\net8.0\refint\ConsoleDemonstration.dll
+C:\Users\Никита\Downloads\lab5\ConsoleDemonstration\obj\Debug\net8.0\ConsoleDemonstration.pdb
+C:\Users\Никита\Downloads\lab5\ConsoleDemonstration\obj\Debug\net8.0\ref\ConsoleDemonstration.dll
