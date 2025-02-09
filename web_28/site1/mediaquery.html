@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Медиазапросы</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a; /* Темный фон */
+            color: #f0e68c; /* Желтый текст */
+            font-size: 16px; /* Базовый размер шрифта */
+        }
+
+        .header {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .header h1 {
+            font-family: 'UnifrakturCook', cursive;
+            font-size: 2.5rem; /* Размер заголовка */
+            color: #bebcc0; /* Цвет заголовка */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Тень для заголовка */
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            background-color: #2e2e2e; /* Цвет фона навигации */
+            padding: 10px 20px;
+            justify-content: space-between;
+        }
+
+        .menu {
+            display: flex;
+            flex-grow: 1;
+            justify-content: space-around;
+        }
+
+        .menu-button {
+            background-color: #474747e9; /* Цвет кнопок */
+            color: #fff; /* Цвет текста кнопок */
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem; /* Размер шрифта для кнопок */
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            margin: 0 10px;
+        }
+
+        .menu-button:hover {
+            background-color: #3cb371; /* Цвет кнопки при наведении */
+            transform: scale(1.05);
+        }
+
+        .menu-button:active {
+            transform: scale(0.95);
+            background-color: #2e8b57; /* Цвет кнопки при нажатии */
+        }
+
+        .task {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #3c3c3c; /* Цвет фона задач */
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .task:hover {
+            background-color: #e7f3fe; /* Цвет фона задач при наведении */
+            color: #4CAF50; /* Цвет текста задач при наведении */
+        }
+
+        .column-layout {
+            column-count: 1; /* Одна колонка */
+            column-gap: 0; /* Промежуток между колонками */
+            padding: 0; /* Убираем отступы */
+            margin: 20px auto; /* Центрируем контейнер */
+        }
+
+        .column-layout p {
+            transition: color 0.3s; /* Плавный переход цвета */
+            margin: 20px; /* Отступы у абзацев */
+        }
+
+        .column-layout p:hover {
+            color: #4CAF50; /* Изменение цвета текста при наведении */
+        }
+
+        footer {
+            background-color: #2e2e2e; /* Цвет фона футера */
+            text-align: center;
+            padding: 10px;
+            color: #B0BEC5; /* Цвет текста футера */
+        }
+
+        .toggle-button {
+            display: block;
+            margin: 20px auto; /* Центрируем кнопку */
+            padding: 10px 20px;
+            background-color: #4CAF50; /* Цвет кнопки переключателя */
+            color: #ffffff; /* Цвет текста кнопки */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .toggle-button:hover {
+            background-color: green; /* Цвет кнопки при наведении */
+        }
+
+        .toggle-button:active {
+            background-color: greenyellow; /* Цвет кнопки при нажатии */
+        }
+
+        /* Медиазапросы */
+        @media (max-width: 600px) {
+            body {
+                font-size: 0.875rem; /* Уменьшение размера шрифта */
+            }
+
+            .header h1 {
+                font-size: 3rem; /* Уменьшение размера заголовка */
+            }
+
+            .menu-button {
+                font-size: 0.875rem; /* Уменьшение размера шрифта для кнопок */
+            }
+
+            .task {
+                font-size: 0.875rem; /* Уменьшение размера шрифта для задач */
+            }
+
+            .column-layout p {
+                font-size: 0.875rem; /* Уменьшение размера шрифта для абзацев */
+            }
+        }
+
+        @media (max-height: 500px) {
+            nav, footer {
+                padding: 5px; /* Уменьшение отступов */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <h1>Медиазапросы</h1>
+    </header>
+
+    <nav>
+        <div class="menu">
+            <button class="menu-button" onclick="GoToHeadPage()">Главная</button>
+            <button class="menu-button" onclick="GoToStyleOptions()">Перейти к странице "Стилевые свойства"</button>
+            <button class="menu-button" onclick="GoToSelectors()">Перейти к странице "Селекторы"</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="task">
+            Это задача. Наведите на меня, чтобы изменить цвет текста.
+        </div>
+        <div class="task">
+            Это еще одна задача. Наведите на меня, чтобы изменить цвет текста.
+        </div>
+
+        <button class="toggle-button" id="toggleButton">Переключить в несколько колонок</button>
+        <div class="column-layout" id="text-container">
+            <p>Первый абзац текста, который будет отображаться в колонках.</p>
+            <p>Второй абзац текста, который будет отображаться в колонках.</p>
+            <p>Третий абзац текста, который будет отображаться в колонках.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p class="footer-text">Сообщение об авторских правах, <a href="mailto:example@example.com">katyatalan@yandex.by</a></p>
+    </footer>
+
+    <script>
+        function GoToHeadPage() {
+            window.location.href = 'index.html';
+        }
+
+        function GoToStyleOptions() {
+            window.location.href = 'style_options.html';
+        }
+
+        function GoToSelectors() {
+            window.location.href = 'selectors.html';
+        }
+
+        const textContainer = document.getElementById('text-container');
+        const toggleButton = document.getElementById('toggleButton');
+
+        let isSingleColumn = true; // Переменная для отслеживания текущего состояния
+
+        toggleButton.addEventListener('click', () => {
+            // Переключаем количество колонок
+            if (isSingleColumn) {
+                textContainer.style.columnCount = '2';
+                toggleButton.textContent = 'Переключить на одну колонку';
+            } else {
+                textContainer.style.columnCount = '1';
+                toggleButton.textContent = 'Переключить на несколько колонок';
+            }
+            isSingleColumn = !isSingleColumn; // Меняем состояние
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Объединённый HTML файл с анимацией</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a; /* Темный фон */
+            color: #ffea00; /* Яркий желтый текст */
+        }
+
+        .header {
+            text-align: center;
+            margin: 50px 0 40px;
+        }
+
+        .header h1 {
+            font-family: 'UnifrakturCook', cursive;
+            font-size: 4rem;
+            color: #ffea00; /* Яркий желтый цвет заголовка */
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.7), 3px 3px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            background-color: #2e2e2e; /* Цвет фона навигации */
+            padding: 10px 20px;
+            justify-content: space-between;
+        }
+
+        .menu {
+            display: flex;
+            flex-grow: 1;
+            justify-content: space-around;
+        }
+
+        .menu-button {
+            background-color: #474747e9; /* Цвет кнопок */
+            color: #fff; /* Цвет текста кнопок */
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem; /* Размер шрифта для кнопок */
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            margin: 0 10px;
+        }
+
+        .menu-button:hover {
+            background-color: #3cb371; /* Цвет кнопки при наведении */
+            transform: scale(1.05);
+        }
+
+        .menu-button:active {
+            transform: scale(0.95);
+            background-color: #2e8b57; /* Цвет кнопки при нажатии */
+        }
+
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .box {
+            border-style: solid;
+            border-width: 1px;
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background-color: #ff00d0;
+            transition: width 0.5s, height 0.5s, background-color 0.5s, transform 0.5s;
+        }
+
+        .box:hover {
+            background-color: #ffcccc;
+            transform: rotate(1080deg);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .animated-text {
+            font-size: 2rem;
+            color: #ffea00; /* Яркий желтый цвет текста */
+            position: relative;
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        @keyframes drawZ {
+            0% {
+                left: 200px;
+                top: 200px;
+            }
+            25% {
+                left: 0px; /* Вправо */
+                top: 200px;
+            }
+            50% {
+                left: 0px; /* Вниз по диагонали */
+                top: 0px; /* Увеличиваем на 100px */
+            }
+            75% {
+                left: 200px; /* Влево */
+                top: 0px;
+            }
+            99% {
+                left: 100px;
+                top: 100px;
+            }
+        }
+
+        footer {
+            background-color: #2e2e2e; /* Цвет фона футера */
+            text-align: center;
+            padding: 10px;
+            color: #ffea00; /* Яркий желтый цвет текста футера */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>DOM</h1>
+    </div>
+
+    <nav>
+        <div class="menu">
+            <button class="menu-button" onclick="GoToHead()">На главную</button>
+            <button id="open-doc" class="menu-button">Создание нового окна</button>
+            <button id="show-alert" class="menu-button">Показать alert</button>
+            <button id="show-confirm" class="menu-button">Показать confirm</button>
+            <button id="show-prompt" class="menu-button">Показать prompt</button>
+            <button id="show-lab2" class="menu-button">Показать задание 2</button>
+        </div>
+    </nav>
+
+    <div class="content">
+        <div id="result"></div>
+        <div id="window-size"></div>
+        <div id="window-pos"></div>
+        
+        <div class="transform-row">
+            <div id="element1" class="box"></div>
+            <div id="element2" class="box"></div>
+            <div id="element3" class="box"></div>
+        </div>
+        <button id="change-text" class="menu-button">Изменить текст</button>
+        <button id="change-color" class="menu-button">Изменить цвет</button>
+        <button id="change-font" class="menu-button">Изменить шрифт</button>
+
+        <div id="float-text-lab2" class="hidden animated-text">KFC</div>
+    </div>
+
+    <footer>
+        <p class="footer-text">Сообщение об авторских правах, <a href="mailto:example@example.com">katyatalan@yandex.by</a></p>
+    </footer>
+
+    <script>
+        document.getElementById("open-doc").addEventListener("click", function(event) {
+            event.preventDefault();
+            const url = 'https://example.com/document.pdf'; 
+            window.open(url, '_blank', 'width=800,height=600');
+        });
+
+        document.getElementById("show-alert").addEventListener("click", function(event) {
+            event.preventDefault();
+            alert("zxc");
+        });
+
+        document.getElementById("show-confirm").addEventListener("click", function(event) {
+            event.preventDefault();
+            const userConfirmed = confirm("Вы уверены?");
+            const resultDiv = document.getElementById("result");
+
+            if (userConfirmed) {
+                resultDiv.textContent = "OK";
+            } else {
+                resultDiv.textContent = "Отмена";
+            }
+        });
+
+        document.getElementById("show-prompt").addEventListener("click", function(event) {
+            event.preventDefault();
+            const userInput = prompt("Введите ваше имя:");
+            const resultDiv = document.getElementById("result");
+
+            if (userInput !== null && userInput.trim() !== "") {
+                resultDiv.textContent = "Введено: " + userInput;
+            } else {
+                resultDiv.textContent = "Пользователь не ввел данные или отменил ввод.";
+            }
+        });
+
+        window.addEventListener("resize", function() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            const sizeDiv = document.getElementById("window-size");
+
+            sizeDiv.textContent = `Текущие размеры окна: ширина = ${width}px, высота = ${height}px`;
+        });
+
+        window.addEventListener("load", function() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            const sizeDiv = document.getElementById("window-size");
+
+            sizeDiv.textContent = `Текущие размеры окна: ширина = ${width}px, высота = ${height}px`;
+        });
+
+        setInterval(function() {
+            const x = window.screenX;
+            const y = window.screenY;
+            const sizeDiv = document.getElementById("window-pos");
+
+            sizeDiv.textContent = `Текущее положение окна: X = ${x}px, Y = ${y}px`;
+        }, 1000); 
+
+        document.getElementById("change-text").addEventListener("click", function() {
+            document.getElementById("element1").textContent = "Первый";
+            document.getElementById("element2").textContent = "Второй";
+            document.getElementById("element3").textContent = "Третий?";
+        });
+
+        document.getElementById("change-color").addEventListener("click", function() {
+            document.getElementById("element1").style.backgroundColor = "lightpurple";
+            document.getElementById("element2").style.backgroundColor = "lightcoral";
+            document.getElementById("element3").style.backgroundColor = "lightpink";
+        });
+
+        document.getElementById("change-font").addEventListener("click", function() {
+            document.getElementById("element1").style.fontFamily = "Georgia";
+            document.getElementById("element2").style.fontFamily = "Tahoma";
+            document.getElementById("element3").style.fontFamily = "Courier New";
+        });
+
+        function GoToHead() {
+            document.location.href = "index.html"
+        }
+
+        document.getElementById("show-lab2").addEventListener("click", function(event) {
+            event.preventDefault();
+            const text = document.getElementById("float-text-lab2");
+
+            if (text.classList.contains("hidden")) {
+                text.classList.remove("hidden");
+                text.style.animation = "drawZ 3s infinite"; // Запуск анимации при показе
+                this.innerHTML = "Скрыть задание 2";
+            } else {
+                text.classList.add("hidden"); 
+                text.style.animation = ""; // Остановка анимации при скрытии
+                this.innerHTML = "Показать задание 2";
+            }
+        });
+    </script>
+</body>
+</html>

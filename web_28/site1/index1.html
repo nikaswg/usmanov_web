@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сайт</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <script>
+        function togglePoem() {
+            const poem = document.getElementById('poem');
+            poem.style.display = poem.style.display === 'none' ? 'block' : 'none';
+        }
+        function toggleQuotes() {
+            const quotes = document.getElementById('quotes');
+            quotes.style.display = quotes.style.display === 'none' ? 'block' : 'none';
+        }
+        function toggleLists() {
+            const lists = document.getElementById('lists');
+            lists.style.display = lists.style.display === 'none' ? 'block' : 'none';
+        }
+        function toggleTableSection() {
+            const lists = document.getElementById('tablesection');
+            lists.style.display = lists.style.display === 'none' ? 'block' : 'none';
+        }
+        function toggleEscape() {
+            const lists = document.getElementById('escape');
+            lists.style.display = lists.style.display === 'none' ? 'block' : 'none';
+        }
+        function toggleWidget() {
+            const lists = document.getElementById('widget');
+            lists.style.display = lists.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <img src="img/logo.png" alt="Логотип" class="logo"> 
+        <h1>Талан Екатерина Игоревна</h1>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#formatting">Форматирование</a></li>
+            <li><a href="index1.html" target="_blank">CSS</a></li>
+            <li><a href="#dom">DOM</a></li>
+            <li><a href="#crossword">Кроссворд</a></li>
+            <li><a href="#string">String</a></li>
+            <li><a href="#forms">Формы</a></li>
+            <li><a href="#data">Data</a></li>
+            <li><a href="#object">Object</a></li>
+        </ul>
+    </nav>
+    
+    <div class="main-content">
+        <div class="text-field" id="formatting">
+            
+            <div id="poem" class="poem">
+                <h4>Стихотворение:</h4>
+                <h3>ЦВЕТОК</h3>
+                <pre>
+                    Цветок засохший, безуханный,
+                    Забытый в книге вижу я;
+                    И вот уже мечтою странной
+                    Душа наполнилась моя:
+                    
+                    Где цвел? когда? какой весною?
+                    И долго ль цвел? и сорван кем,
+                    Чужой, знакомой ли рукою?
+                    И положен сюда зачем?
+                    
+                    На память нежного ль свиданья,
+                    Или разлуки роковой,
+                    Иль одинокого гулянья
+                    В тиши полей, в тени лесной?
+                    
+                    И жив ли тот, и та жива ли?
+                    И нынче где их уголок?
+                    Или уже они увяли,
+                    Как сей неведомый цветок?
+                </pre>
+            </div>
+    
+            <div id="quotes" class="quotes">
+                <h4>Цитаты:</h4>
+                <blockquote>"Не существует ничего постоянного, кроме перемен." — Геродот</blockquote>
+                <blockquote>"Сложность — это просто вопрос времени." — Платон</blockquote>
+                <blockquote>"Знание — это сила." — Фрэнсис Бэкон</blockquote>
+            </div>
+    
+            <div id="lists" class="lists">
+                <h4>Списки:</h4>
+                <h5>Нумерованный список (Литература):</h5>
+                <ol>
+                    <li>Аристотель. Никомахова этика.</li>
+                    <li>Платон. Государство.</li>
+                    <li>Фейербах Л. Ф. Сущность христианства.</li>
+                    <li>Дюргейм Э. Правила социологического метода.</li>
+                    <li>Маркс К. Капитал.</li>
+                    <li>Тургенев И. С. Записки охотника.</li>
+                    <li>Достоевский Ф. М. Преступление и наказание.</li>
+                    <li>Толстой Л. Н. Война и мир.</li>
+                    <li>Чехов А. П. Печальная красавица.</li>
+                    <li>Гоголь Н. В. Мертвые души.</li>
+                </ol>
+    
+                <h5>Маркированный список(животные):</h5>
+                <ul>
+                    <li>Кот</li>
+                    <li>Собака</li>
+                    <li>Хомяк</li>
+                    <li>Жираф</li>
+                    <li>Слон</li>
+                    <li>Медведь</li>
+                    <li>Волк</li>
+                    <li>Лиса</li>
+                    <li>Кенгуру</li>
+                    <li>Верблюд</li>
+                </ul>
+    
+                <h5>Список определений:</h5>
+                <dl>
+                    <dt>Компьютер</dt>
+                    <dd>Устройство для обработки информации</dd>
+                    <dt>Дискета</dt>
+                    <dd>Гибкий магнитный диск</dd>
+                    <dt>Винчестер</dt>
+                    <dd>Жесткий магнитный диск</dd>
+                </dl>
+            </div>
+    
+            <div id="tablesection" class="tablesection">
+                <h4>ТАБЛИЦЫ:</h4>
+                <h3>Таблица 1</h3> 
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="3">Заголовок таблицы</th> 
+                        </tr>
+                        <tr>
+                            <th>Колонка 1</th>
+                            <th>Колонка 2</th>
+                            <th>Колонка 3</th>
+                        </tr>
+                    </thead>
+                    <tbody class="highlight">
+                        <tr>
+                            <td>Данные 1</td>
+                            <td>Данные 2</td>
+                            <td>Данные 3</td>
+                        </tr>
+                        <tr>
+                            <td>Данные 4</td>
+                            <td>Данные 5</td>
+                            <td>Данные 6</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Итого</td> 
+                            <td>Итоговые данные</td>
+                        </tr>
+                    </tbody>
+                    <tfoot class="footer">
+                        <tr>
+                            <td colspan="3">Футер таблицы (дополнительная информация)</td> 
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <div id="escape" class="escape">
+                <h4>Escape-последовательности для таблицы:</h4>
+            <pre>
+&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+             &lt;th colspan="3"&gt;Заголовок таблицы&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Колонка 1&lt;/th&gt;
+            &lt;th&gt;Колонка 2&lt;/th&gt;
+            &lt;th&gt;Колонка 3&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Данные 1&lt;/td&gt;
+            &lt;td&gt;Данные 2&lt;/td&gt;
+            &lt;td&gt;Данные 3&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Данные 4&lt;/td&gt;
+            &lt;td&gt;Данные 5&lt;/td&gt;
+            &lt;td&gt;Данные 6&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+    &lt;tfoot&gt;
+        &lt;tr&gt;
+            &lt;td colspan="3"&gt;Футер таблицы&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tfoot&gt;
+&lt;/table&gt;
+            </pre>
+            </div>
+    
+            <div id="widget" class="widget">
+                <h4 id="widgett">Виджет:</h4>
+            <details>
+                <summary>Краткое изложение</summary>
+                <p>Здесь вы можете найти дополнительную информацию о теме. Этот виджет позволяет скрыть или показать содержимое по вашему выбору.</p>
+            </details>
+            </div>
+            
+        </div>
+    
+        <aside class="sidebar">
+            <div class="toggle-text" onclick="togglePoem()">Стилевый свойства</div>
+            <div class="toggle-text" onclick="toggleQuotes()">Медиазапросы</div>
+            <div class="toggle-text" onclick="toggleLists()">Селекторы</div>
+            <div class="toggle-text" onclick="toggleTableSection()">Фильтры</div>
+            <div class="toggle-text" onclick="toggleEscape()">Переходы</div>
+            <div class="toggle-text" onclick="toggleWidget()">Flex</div>
+        </aside>
+    </div>
+    
+    <footer>
+        <p class="footer-text">Сообщение об авторских правах, <a href="mailto:example@example.com">katyatalan@yandex.by</a></p>
+    </footer>
+    
+    </body>
+    </html>

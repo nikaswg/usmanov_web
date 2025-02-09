@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Объемная Надпись</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&family=UnifrakturCook&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a; /* Темный фон */
+            color: #f0e68c; /* Желтый текст */
+        }
+
+        .header {
+            text-align: center;
+            margin: 50px 0 40px;
+        }
+
+        .header h1 {
+            font-family: 'UnifrakturCook', cursive;
+            font-size: 4rem;
+            color: #bebcc0;
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.7), 3px 3px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            background-color: #2e2e2e; /* Цвет фона навигации */
+            padding: 10px 20px;
+            justify-content: space-between;
+        }
+
+        .menu {
+            display: flex;
+            flex-grow: 1;
+            justify-content: space-around;
+        }
+
+        .menu-button {
+            background-color: #474747e9; /* Цвет кнопок */
+            color: #fff; /* Цвет текста кнопок */
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem; /* Размер шрифта для кнопок */
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            margin: 0 10px;
+        }
+
+        .menu-button:hover {
+            background-color: #3cb371; /* Цвет кнопки при наведении */
+            transform: scale(1.05);
+        }
+
+        .menu-button:active {
+            transform: scale(0.95);
+            background-color: #2e8b57; /* Цвет кнопки при нажатии */
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        /* Объемная надпись */
+        .text3d-wrap-2 {    
+            background-color: #2A2A2A;
+            border-radius: 2rem;  
+            height: 260px;
+            overflow: hidden;
+            margin-bottom: 20px; /* Добавляем отступ снизу */
+        } 
+
+        .text3d-2 {
+            margin: 0;
+            padding: 0;
+            position: relative;
+            width: 100%;
+            height: 160px;
+            perspective: 2000px;
+            transform-style: preserve-3d;  
+        }
+
+        .text3d-layer-2 {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            transform: rotateY(20deg) rotateX(35deg) translateZ(0);
+            animation: text3d-anim-2 2s infinite alternate linear;
+            animation-fill-mode: forwards;  
+            animation-play-state: paused;
+        }
+
+        .text3d-layer-2:after {
+            font-family: Impact, Charcoal, sans-serif;
+            font-size: 100px;
+            content: '3D текст';
+            letter-spacing: 2px;
+            text-align: center;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 58px;
+            color: #FFF;
+            text-shadow: 4px 0 10px rgba(0, 0, 0, 0.13);
+        }
+
+        .text3d-layer-2:nth-child(1):after { transform: translateZ(0px); }
+        .text3d-layer-2:nth-child(2):after { transform: translateZ(-1.5px); }
+        .text3d-layer-2:nth-child(3):after { transform: translateZ(-3px); }
+        .text3d-layer-2:nth-child(4):after { transform: translateZ(-4.5px); }
+        .text3d-layer-2:nth-child(5):after { transform: translateZ(-6px); }
+        .text3d-layer-2:nth-child(6):after { transform: translateZ(-7.5px); }
+        .text3d-layer-2:nth-child(7):after { transform: translateZ(-9px); }
+        .text3d-layer-2:nth-child(8):after { transform: translateZ(-10.5px); }
+        .text3d-layer-2:nth-child(9):after { transform: translateZ(-12px); }
+        .text3d-layer-2:nth-child(10):after { transform: translateZ(-13.5px); }
+        .text3d-layer-2:nth-child(11):after { transform: translateZ(-15px); }
+        .text3d-layer-2:nth-child(12):after { transform: translateZ(-16.5px); }
+        .text3d-layer-2:nth-child(13):after { transform: translateZ(-18px); }
+        .text3d-layer-2:nth-child(14):after { transform: translateZ(-19.5px); }
+        .text3d-layer-2:nth-child(15):after { transform: translateZ(-21px); }
+        .text3d-layer-2:nth-child(16):after { transform: translateZ(-22.5px); }
+        .text3d-layer-2:nth-child(17):after { transform: translateZ(-24px); }
+        .text3d-layer-2:nth-child(18):after { transform: translateZ(-25.5px); }
+        .text3d-layer-2:nth-child(19):after { transform: translateZ(-27px); }
+        .text3d-layer-2:nth-child(20):after { transform: translateZ(-28.5px); }
+
+        .text3d-layer-2:nth-child(n+10):after {
+            -webkit-text-stroke: 3px rgba(0, 0, 0, 0.25);
+        }
+
+        .text3d-layer-2:nth-child(n+11):after {
+            -webkit-text-stroke: 15px #BFE2FF;
+            text-shadow: 6px 0 6px #00366b, 5px 5px 5px #002951, 0 6px 6px #00366b;
+        }
+
+        .text3d-layer-2:nth-child(n+12):after {
+            -webkit-text-stroke: 15px #2c353d;
+        }
+
+        .text3d-layer-2:last-child:after {
+            -webkit-text-stroke: 17px rgba(0, 0, 0, 0.1);
+        }
+
+        .text3d-layer-2:first-child:after {
+            color: #fff;
+            text-shadow: none;
+        }
+
+        .text3d-wrap-2:hover .text3d-layer-2 {
+            animation-play-state: running;
+        }
+
+        @media (max-width:767px) {
+            .text3d-2 .text3d-layer-2:after {
+                font-size: 60px;
+            }
+        }
+
+        footer {
+            background-color: #2e2e2e;
+            text-align: center;
+            padding: 10px;
+            color: #B0BEC5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Фильтры</h1>
+    </div>
+
+    <nav>
+        <div class="menu">
+            <button class="menu-button" onclick="GoToHeadPage()">Главная</button>
+            <button class="menu-button" onclick="GoToSelectors()">Перейти к странице "Селекторы"</button>
+            <button class="menu-button" onclick="GoToAnimation()">Перейти к странице "Переходы"</button>
+        </div>
+    </nav>
+
+    <div class="content">
+        <div class="text3d-wrap-2">
+            <div class="text3d-2">
+                <div class="text3d-layer-2"></div>
+                <div class="text3d-layer-2"></div>
+                <div class="text3d-layer-2"></div>
+                <div class="text3d-layer-2"></div>
+                <div class="text3d-layer-2"></div>
+                <div class="text3d-layer-2"></div>
+                <div class="text3d-layer-2"></div>
+                <div class="text3d-layer-2"></div>
+                <div class="text3d-layer-2"></div>
+                <div class="text3d-layer-2"></div>
+                <div class="text3d-layer-2"></div>
+                <div class="text3d-layer-2"></div>
+                <div class="text3d-layer-2"></div>
+                <div class="text3d-layer-2"></div>
+                <div class="text3d-layer-2"></div>
+                <div class="text3d-layer-2"></div>
+                <div class="text3d-layer-2"></div>
+                <div class="text3d-layer-2"></div>
+                <div class="text3d-layer-2"></div>
+                <div class="text3d-layer-2"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p class="footer-text">Сообщение об авторских правах, <a href="mailto:example@example.com">katyatalan@yandex.by</a></p>
+    </footer>
+
+    <script>
+        function GoToHeadPage() {
+            window.location.href = 'index.html';
+        }
+
+        function GoToSelectors() {
+            window.location.href = 'selectors.html';
+        }
+
+        function GoToAnimation() {
+            window.location.href = 'anim.html';
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Объемная Надпись</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&family=UnifrakturCook&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a; /* Темный фон */
+            color: #f0e68c; /* Желтый текст */
+        }
+
+        .header {
+            text-align: center;
+            margin: 50px 0 40px;
+        }
+
+        .header h1 {
+            font-family: 'UnifrakturCook', cursive;
+            font-size: 4rem;
+            color: #bebcc0;
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.7), 3px 3px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            background-color: #2e2e2e; /* Цвет фона навигации */
+            padding: 10px 20px;
+            justify-content: space-between;
+        }
+
+        .menu {
+            display: flex;
+            flex-grow: 1;
+            justify-content: space-around;
+        }
+
+        .menu-button {
+            background-color: #474747e9; /* Цвет кнопок */
+            color: #fff; /* Цвет текста кнопок */
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem; /* Размер шрифта для кнопок */
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            margin: 0 10px;
+        }
+
+        .menu-button:hover {
+            background-color: #3cb371; /* Цвет кнопки при наведении */
+            transform: scale(1.05);
+        }
+
+        .menu-button:active {
+            transform: scale(0.95);
+            background-color: #2e8b57; /* Цвет кнопки при нажатии */
+        }
+
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .box {
+            border-style: solid;
+            border-width: 1px;
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background-color: #f506fd;
+            transition: background-color 0.5s, transform 0.5s;
+        }
+
+        .box:hover {
+            background-color: #ffcccc;
+            transform: rotate(720deg);
+        }
+
+        .pulse {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background-color: #00ff00;
+            border-radius: 50%;
+            margin: 20px;
+            transition: transform 0.5s;
+        }
+
+        .pulse:hover {
+            animation: pulse-animation 1.5s infinite;
+        }
+
+        @keyframes pulse-animation {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        .slide {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background-color: #ff0000;
+            margin: 20px;
+            transition: transform 0.5s;
+        }
+
+        .slide:hover {
+            transform: skew(15deg, 25deg);
+        }
+
+        .transform-row {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .scale, .move, .rotate, .skew {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            margin: 20px;
+            border-radius: 12%;
+            transition: transform 0.5s;
+        }
+
+        .scale {
+            background-color: #b300ff;
+        }
+
+        .scale:hover {
+            transform: scale(1.5);
+        }
+
+        .move {
+            background-color: #f41800;
+            position: relative;
+        }
+
+        .move:hover {
+            left: 50px;
+        }
+
+        .rotate {
+            background-color: #e2ea00;
+        }
+
+        .rotate:hover {
+            transform: rotate(45deg);
+        }
+
+        .skew {
+            background-color: #1c0ae4;
+        }
+
+        .skew:hover {
+            transform: skew(20deg, 10deg);
+        }
+
+        .squash {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            margin: 20px;
+            background-color: purple;
+            border-radius: 10px;
+            animation: squash 1s infinite;
+        }
+
+        @keyframes squash {
+            0%, 100% {
+                transform: scaleY(1);
+            }
+            50% {
+                transform: scaleY(0.5);
+            }
+        }
+
+        footer {
+            background-color: #2e2e2e; /* Цвет фона футера */
+            text-align: center;
+            padding: 10px;
+            color: #B0BEC5; /* Цвет текста футера */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Переходы</h1>
+    </div>
+
+    <nav>
+        <div class="menu">
+            <button class="menu-button" onclick="GoToHeadPage()">Главная</button>
+            <button class="menu-button" onclick="GoToFilters()">Перейти к странице "Фильтры"</button>
+            <button class="menu-button" onclick="GoToFlex()">Перейти к странице "Flex"</button>
+        </div>
+    </nav>
+
+    <div class="content">
+        <h2>Первая анимация (Поворот):</h2>
+        <div class="box"></div>
+
+        <h2>Вторая анимация (Пульсация):</h2>
+        <div class="pulse"></div>
+
+        <h2>Третья анимация (Сплющивание):</h2>
+        <div class="squash"></div>
+
+        <h2>2-D преобразования:</h2>
+        <div class="transform-row">
+            <div class="scale"></div>
+            <div class="move"></div>
+            <div class="rotate"></div>
+            <div class="skew"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p class="footer-text">Сообщение об авторских правах, <a href="mailto:example@example.com">katyatalan@yandex.by</a></p>
+    </footer>
+
+    <script>
+        function GoToHeadPage() {
+            window.location.href = 'index.html';
+        }
+
+        function GoToFilters() {
+            window.location.href = 'filters.html';
+        }
+
+        function GoToFlex() {
+            window.location.href = 'flex.html';
+        }
+    </script>
+</body>
+</html>

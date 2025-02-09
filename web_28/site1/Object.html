@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <style>
+    /* Основные стили страницы */
+    body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: white;
+}
+
+.header {
+    text-align: center;
+    margin: 50px 0 40px;
+}
+
+.header h1 {
+    font-family: 'UnifrakturCook', cursive;
+    font-size: 4rem;
+    color: #bebcc0;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.7), 3px 3px 0 rgba(255, 255, 255, 0.3);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    background-color: #1E1E1E;
+    padding: 10px 20px;
+    justify-content: space-between;
+}
+
+.menu {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+}
+
+.menu-button {
+    background-color: #474747e9; /* Цвет кнопок */
+    color: #fff; /* Цвет текста кнопок */
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem; /* Размер шрифта для кнопок */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    margin: 0 10px;
+}
+
+.menu-button:hover {
+    background-color: green; /* Цвет кнопки при наведении */
+    transform: scale(1.05);
+}
+
+.menu-button:active {
+    transform: scale(0.95);
+    background-color: greenyellow; /* Цвет кнопки при нажатии */
+}
+
+
+    .container {
+        width: 80%;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #1E1E1E;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    h2 {
+        text-align: center;
+        color: #a9a7a7e9;
+    }
+
+    .form-container {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: #2A2A2A;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .form-container label {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 14px;
+        color: #ffffff;
+    }
+
+    .form-container input {
+        width: 99%;
+        padding: 12px;
+        margin-bottom: 15px;
+        border: 1px solid #444;
+        border-radius: 5px;
+        font-size: 14px;
+        background-color: #2A2A2A;
+        color: #ffffff;
+        transition: border-color 0.3s ease, background-color 0.3s ease;
+    }
+
+    .form-container input:focus {
+        outline: none;
+        border-color: green;
+        background-color: #333;
+    }
+
+    .form-container button {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        background-color: #28a745;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .form-container button:hover {
+        background-color: #218838;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: center;
+        border: 1px solid #444;
+    }
+
+    th {
+        background-color: green;
+    }
+
+    tr:nth-child(even) {
+        background-color: #2A2A2A;
+    }
+
+    footer {
+        background-color: #1E1E1E;
+        text-align: center;
+        padding: 10px;
+        color: #B0BEC5;
+    }
+
+    footer {
+    background-color: #1E1E1E;
+    text-align: center;
+    padding: 10px;
+    color: #B0BEC5;
+}
+
+  </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Больницы Гомеля</h1>
+        <nav>
+            <div class="menu">
+                <button class="menu-button" onclick="GoHome()">На главную</button>
+            </div>
+        </nav>
+    </header>
+<main>
+  <div class="container">
+    <h2 align="center">Управление Записями о Врачах</h2><br>
+    <div class="menu">
+        <button class="menu-button" onclick="showView()">Просмотр</button>
+        <button class="menu-button" onclick="showAdd()">Добавление</button>
+        <button class="menu-button" onclick="showSurgeonsUnder40()">Хирурги до 40 лет</button>
+        <button class="menu-button" onclick="sortByAge()">Сортировать по возрасту</button>
+        <button class="menu-button" onclick="showSearch()">Поиск по специальности</button>
+    </div>
+
+    <div id="edit-form" class="form-container hidden">
+      <h2>Изменить запись</h2>
+      <form onsubmit="saveEdit(event)">
+          <input type="hidden" id="edit-index">
+          <label>Название больницы: <input type="text" id="edit-hospital" required placeholder="Введите название больницы"></label>
+          <label>Ф.И.О. врача: <input type="text" id="edit-doctor" required placeholder="Введите Ф.И.О. врача"></label>
+          <label>Специальность: <input type="text" id="edit-specialty" required placeholder="Введите специальность"></label>
+          <label>Возраст: <input type="number" id="edit-age" required placeholder="Введите возраст"></label>
+          <button type="submit">Сохранить изменения</button>
+      </form>
+    </div>
+
+    <div id="table-container"></div>
+
+    <div id="add-form" class="form-container hidden">
+        <h2>Добавить новую запись</h2>
+        <form onsubmit="addRecord(event)">
+            <label>Название больницы: <input type="text" id="hospital" required placeholder="Введите название больницы"></label>
+            <label>Ф.И.О. врача: <input type="text" id="doctor" required placeholder="Введите Ф.И.О. врача"></label>
+            <label>Специальность: <input type="text" id="specialty" required placeholder="Введите специальность"></label>
+            <label>Возраст: <input type="number" id="age" required placeholder="Введите возраст"></label>
+            <button type="submit">Добавить</button>
+        </form>
+    </div>
+  </div>
+  <footer>
+    <p class="footer-text">Сообщение об авторских правах, <a href="mailto:example@example.com">katyatalan@yandex.by</a></p>
+</footer>
+</main>
+
+<script>
+    let records = [
+        { hospital: "Городская больница", doctor: "Иванов И.И.", specialty: "Хирург", age: 35 },
+        { hospital: "Областная больница", doctor: "Петров П.П.", specialty: "Терапевт", age: 45 },
+        { hospital: "Центральная больница", doctor: "Сидоров С.С.", specialty: "Хирург", age: 29 },
+        { hospital: "Детская больница", doctor: "Федоров Ф.Ф.", specialty: "Педиатр", age: 38 },
+        { hospital: "Клиника здоровья", doctor: "Семенов С.С.", specialty: "Хирург", age: 28 }
+    ];
+
+    // Отображение таблицы данных
+    function showTable(data) {
+        const container = document.getElementById("table-container");
+        container.innerHTML = `
+            <table>
+                <tr>
+                    <th>Название больницы</th>
+                    <th>Ф.И.О. врача</th>
+                    <th>Специальность</th>
+                    <th>Возраст</th>
+                    <th>Действия</th>
+                </tr>
+                ${data.map((record, index) => `
+                    <tr>
+                        <td>${record.hospital}</td>
+                        <td>${record.doctor}</td>
+                        <td>${record.specialty}</td>
+                        <td>${record.age}</td>
+                        <td>
+                            <button class='r1' onclick="editRecord(${index})">Изменить</button>
+                            <button class='r2' onclick="deleteRecord(${index})">Удалить</button>
+                        </td>
+                    </tr>
+                `).join('')}
+            </table>
+        `;
+    }
+
+    // Показать все записи
+    function showView() {
+        showTable(records);
+        document.getElementById("add-form").classList.add("hidden");
+        document.getElementById("edit-form").classList.add("hidden");
+    }
+
+    // Показать хирургов до 40 лет
+    function showSurgeonsUnder40() {
+        const surgeons = records.filter(record => record.specialty === "Хирург" && record.age < 40);
+        showTable(surgeons);
+    }
+
+    // Добавить новую запись
+    function addRecord(event) {
+        event.preventDefault();
+        const hospital = document.getElementById("hospital").value;
+        const doctor = document.getElementById("doctor").value;
+        const specialty = document.getElementById("specialty").value;
+        const age = Number(document.getElementById("age").value);
+
+        records.push({ hospital, doctor, specialty, age });
+        showView();
+    }
+
+
+    // Удалить запись
+    function deleteRecord(index) {
+        records.splice(index, 1);
+        showView();
+    }
+
+    // Показать форму редактирования
+    function editRecord(index) {
+        const record = records[index];
+
+        document.getElementById("edit-index").value = index;
+        document.getElementById("edit-hospital").value = record.hospital;
+        document.getElementById("edit-doctor").value = record.doctor;
+        document.getElementById("edit-specialty").value = record.specialty;
+        document.getElementById("edit-age").value = record.age;
+
+        document.getElementById("edit-form").classList.remove("hidden");
+        document.getElementById("add-form").classList.add("hidden");
+    }
+
+    // Сохранить изменения
+    function saveEdit(event) {
+        event.preventDefault();
+        const index = document.getElementById("edit-index").value;
+        records[index] = {
+            hospital: document.getElementById("edit-hospital").value,
+            doctor: document.getElementById("edit-doctor").value,
+            specialty: document.getElementById("edit-specialty").value,
+            age: Number(document.getElementById("edit-age").value)
+        };
+        showView();
+    }
+
+    // Сортировка записей по возрасту
+    function sortByAge() {
+        records.sort((a, b) => b.age - a.age);
+        showTable(records);
+    }
+
+    // Поиск записей по специальности
+    function showSearch() {
+        const specialty = prompt("Введите специальность для поиска:");
+        const filtered = records.filter(record => record.specialty.toLowerCase() === specialty.toLowerCase());
+        showTable(filtered);
+    }
+
+    function showAdd() {
+        document.getElementById("add-form").classList.remove("hidden");
+        document.getElementById("edit-form").classList.add("hidden");
+        document.getElementById("table-container").innerHTML = ""; // Скрыть таблицу
+    }
+
+    function GoHome() {
+        window.location.href = 'index.html';
+    }
+</script>
+</body>
+</html>

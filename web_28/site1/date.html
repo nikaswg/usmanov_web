@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная 6</title>
+    <style>
+    body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: white;
+}
+
+.header {
+    text-align: center;
+    margin: 50px 0 40px;
+}
+
+.header h1 {
+    font-family: 'UnifrakturCook', cursive;
+    font-size: 4rem;
+    color: #bebcc0;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.7), 3px 3px 0 rgba(255, 255, 255, 0.3);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    background-color: #1E1E1E;
+    padding: 10px 20px;
+    justify-content: space-between;
+}
+
+.menu {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+}
+
+.menu-button {
+    background-color: #474747e9; /* Цвет кнопок */
+    color: #fff; /* Цвет текста кнопок */
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem; /* Размер шрифта для кнопок */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    margin: 0 10px;
+}
+
+.menu-button:hover {
+    background-color: green; /* Цвет кнопки при наведении */
+    transform: scale(1.05);
+}
+
+.menu-button:active {
+    transform: scale(0.95);
+    background-color: greenyellow; /* Цвет кнопки при нажатии */
+}
+
+        .container-table {
+            display: flex;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+
+        .column, .column2 {
+            flex: 1;
+            margin: 10px;
+            border: 1px solid #000;
+            padding: 20px;
+            background-color: #1E1E1E;
+            border-radius: 5px;
+            min-width: 300px;
+            box-sizing: border-box;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 5px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            background-color: greenyellow;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+
+        th {
+            background-color: green;
+        }
+
+        input[type="text"], input[type="date"], input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid green;
+            border-radius: 5px;
+            background-color: #2A2A2A;
+            color: white;
+        }
+
+        button {
+            border: 1px solid black;
+            padding: 5px;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            background-color: rgb(25, 231, 214);
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #1E1E1E;
+            text-align: center;
+            padding: 10px;
+            color: #B0BEC5;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Лабораторная 6</h1>
+        <nav>
+            <div class="menu">
+                <button class="menu-button" onclick="GoToHead()">На главную</button>
+            </div>
+        </nav>
+    </header>
+    <div class="container-table">
+        <div class="column">
+            <h2>Сведения о сотрудниках</h2>
+            <label>Фамилия:</label>
+            <input type="text" id="lastName"><br>
+            <label>Дата заключения контракта:</label>
+            <input type="date" id="contractDate"><br>
+            <label>Продолжительность отпуска (дней): 
+                <select id="duration" required>
+                    <option value="12">12 дней</option>
+                    <option value="24">24 дня</option>
+                    <option value="30">30 дней</option>
+                    <option value="48">48 дней</option>
+                    <option value="60">60 дней</option>
+                </select>
+            <button class="menu-button" onclick="addEmployee()">Добавить сотрудника</button>
+            <br>
+            <label>Введите дату для проверки отпуска:</label>
+            <input type="date" id="checkDate"><br>
+            <button class="menu-button" onclick="findEmployeesOnVacation()">Проверить отпуск</button>
+            <button class="menu-button" onclick="clearTable()">Очистить таблицу</button>
+        </div>
+        <div class="column2">
+            <h2>Таблица сотрудников</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Фамилия</th>
+                        <th>Дата заключения контракта</th>
+                        <th>Продолжительность отпуска (дни)</th>
+                        <th>Дата начала отпуска</th>
+                    </tr>
+                </thead>
+                <tbody id="employeeTableBody"></tbody>
+            </table>
+            <div id="vacationResult"></div>
+        </div>
+    </div>
+    <footer>
+        <p class="footer-text">Сообщение об авторских правах, <a href="mailto:example@example.com">katyatalan@yandex.by</a></p>
+</footer>
+
+    <script>
+        const employees = [];
+
+        function addEmployee() {
+            const lastName = document.getElementById("lastName").value;
+            const contractDate = document.getElementById("contractDate").value;
+            const vacationDuration = parseInt(document.getElementById("vacationDuration").value);
+
+            if (!lastName || !contractDate || isNaN(vacationDuration)) {
+                alert("Заполните все поля формы.");
+                return;
+            }
+
+            const contractDateObj = new Date(contractDate);
+            if (isNaN(contractDateObj.getTime())) {
+                alert("Неверный формат даты.");
+                return;
+            }
+
+            // Рассчёт даты начала отпуска через 11 месяцев
+            const vacationStartDateObj = new Date(contractDateObj);
+            vacationStartDateObj.setMonth(vacationStartDateObj.getMonth() + 11);
+
+            // Форматирование даты начала отпуска
+            const vacationStartDate = vacationStartDateObj.toISOString().split('T')[0];
+
+            // Добавление данных сотрудника в таблицу
+            const employeeTableBody = document.getElementById("employeeTableBody");
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${lastName}</td>
+                <td>${contractDate}</td>
+                <td>${vacationDuration}</td>
+                <td>${vacationStartDate}</td>
+            `;
+            employeeTableBody.appendChild(row);
+
+            // Сохранение данных сотрудника для поиска отпуска
+            employees.push({ lastName, vacationStartDate, vacationDuration });
+            document.getElementById("lastName").value = '';
+            document.getElementById("contractDate").value = '';
+            document.getElementById("vacationDuration").value = '';
+        }
+
+        function findEmployeesOnVacation() {
+            const checkDateValue = document.getElementById("checkDate").value;
+            if (!checkDateValue) {
+                alert("Введите дату для проверки отпуска.");
+                return;
+            }
+
+            const checkDate = new Date(checkDateValue);
+            const vacationTableBody = document.getElementById("vacationResult");
+            vacationTableBody.innerHTML = ''; // Очистка предыдущих результатов
+
+            employees.forEach(employee => {
+                const vacationDateObj = new Date(employee.vacationStartDate);
+                const vacationEndDate = new Date(vacationDateObj);
+                vacationEndDate.setDate(vacationEndDate.getDate() + employee.vacationDuration); // Добавление продолжительности отпуска
+
+                if (checkDate >= vacationDateObj && checkDate < vacationEndDate) {
+                    const vacationRow = document.createElement("div");
+                    vacationRow.innerHTML = `Сотрудник ${employee.lastName} находится в отпуске с ${employee.vacationStartDate} по ${vacationEndDate.toISOString().split('T')[0]}`;
+                    vacationTableBody.appendChild(vacationRow);
+                }
+            });
+
+            if (vacationTableBody.innerHTML === '') {
+                vacationTableBody.innerHTML = "Нет сотрудников, находящихся в отпуске на эту дату.";
+            }
+        }
+
+        function clearTable() {
+            const employeeTableBody = document.getElementById("employeeTableBody");
+            employeeTableBody.innerHTML = '';
+            employees.length = 0;
+            document.getElementById("vacationResult").innerHTML = '';
+        }
+
+        function GoToHead() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

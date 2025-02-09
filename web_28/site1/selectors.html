@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Селекторы</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&family=UnifrakturCook&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a; /* Темный фон */
+            color: #f0e68c; /* Желтый текст */
+        }
+
+        .header {
+            text-align: center;
+            margin: 50px 0 40px;
+        }
+
+        .header h1 {
+            font-family: 'UnifrakturCook', cursive;
+            font-size: 4rem;
+            color: #bebcc0;
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.7), 3px 3px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            background-color: #2e2e2e;
+            padding: 10px 20px;
+            justify-content: space-between;
+        }
+
+        .menu {
+            display: flex;
+            flex-grow: 1;
+            justify-content: space-around;
+        }
+
+        .menu-button {
+            background-color: #474747e9; /* Цвет кнопок */
+            color: #fff; /* Цвет текста кнопок */
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem; /* Размер шрифта для кнопок */
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            margin: 0 10px;
+        }
+
+        .menu-button:hover {
+            background-color: #3cb371; /* Цвет кнопки при наведении */
+            transform: scale(1.05);
+        }
+
+        .menu-button:active {
+            transform: scale(0.95);
+            background-color: #2e8b57; /* Цвет кнопки при нажатии */
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        /* Задача 1: Блочный элемент с усечением текста */
+        .text-block {
+            width: 100%;
+            max-width: 1070px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            background-color: #3c3c3c; /* Темный фон блока */
+            color: #ffffff;
+        }
+
+        /* Задача 2: Селекторы атрибутов */
+        .example[data-type="example"] {
+            background-color: hsl(200, 100%, 50%);
+            padding: 10px;
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        .example[data-type^="ex"] {
+            border: 2px solid hsl(120, 100%, 50%);
+        }
+
+        .example[data-type*="am"] {
+            color: hsl(60, 100%, 50%);
+        }
+
+        .example[data-type$="ple"] {
+            font-weight: bold;
+        }
+
+        /* Задача 3: Структурные псевдоклассы */
+        .group div:first-child {
+            color: red;
+        }
+
+        .group div:last-child {
+            color: blue;
+        }
+
+        .group div:nth-child(odd) {
+            background-color: hsl(0, 100%, 50%);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .group div:nth-child(even) {
+            background-color: hsl(120, 100%, 50%);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .group div:nth-child(3n+1) {
+            font-style: italic;
+        }
+
+        /* Задача 4: 3 способа отображения с border-radius */
+        .rounded1 {
+            border-radius: 10px;
+            background-color: hsla(240, 100%, 50%, 0.5);
+            padding: 10px;
+            color: white;
+        }
+
+        .rounded2 {
+            border-radius: 50%;
+            background-color: hsla(60, 100%, 50%, 0.5);
+            padding: 10px;
+            color: white;
+        }
+
+        .rounded3 {
+            border-radius: 30% 60%;
+            background-color: hsla(0, 100%, 50%, 0.5);
+            padding: 10px;
+            color: white;
+        }
+
+        footer {
+            background-color: #2e2e2e; /* Цвет фона футера */
+            text-align: center;
+            padding: 10px;
+            color: #B0BEC5; /* Цвет текста футера */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Селекторы</h1>
+    </div>
+
+    <nav>
+        <div class="menu">
+            <button class="menu-button" onclick="GoToHeadPage()">Главная</button>
+            <button class="menu-button" onclick="GoToMediaquery()">Перейти к странице "Медиазапросы"</button>
+            <button class="menu-button" onclick="GoToFilters()">Перейти к странице "Фильтры"</button>
+        </div>
+    </nav>
+
+    <div class="content">
+        <div class="text-block">
+            Это пример большого текста, который будет усечен с добавлением многоточия, если пространство не позволяет отобразить его полностью.
+        </div>
+
+        <div class="example" data-type="example">Пример с атрибутом</div>
+
+        <div class="group">
+            <div>Первый элемент</div>
+            <div>Второй элемент</div>
+            <div>Третий элемент</div>
+            <div>Четвертый элемент</div>
+            <div>Пятый элемент</div>
+        </div>
+
+        <div class="rounded1">Rounded 1</div>
+        <div class="rounded2">Rounded 2</div>
+        <div class="rounded3">Rounded 3</div>
+    </div>
+
+    <footer>
+        <p class="footer-text">Сообщение об авторских правах, <a href="mailto:example@example.com">katyatalan@yandex.by</a></p>
+    </footer>
+
+    <script>
+        function GoToHeadPage() {
+            window.location.href = 'index.html';
+        }
+
+        function GoToMediaquery() {
+            window.location.href = 'mediaquery.html';
+        }
+
+        function GoToFilters() {
+            window.location.href = 'filters.html';
+        }
+    </script>
+</body>
+</html>

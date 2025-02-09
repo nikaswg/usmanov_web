@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Пример</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a; /* Темный фон */
+            color: #f0e68c; /* Желтый текст */
+        }
+
+        .header {
+            text-align: center;
+            margin: 50px 0 40px;
+        }
+
+        .header h1 {
+            font-family: 'UnifrakturCook', cursive;
+            font-size: 4rem;
+            color: #bebcc0;
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.7), 3px 3px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            background-color: #2e2e2e; /* Цвет фона навигации */
+            padding: 10px 20px;
+            justify-content: space-between;
+        }
+
+        .menu {
+            display: flex;
+            flex-grow: 1;
+            justify-content: space-around;
+        }
+
+        .menu-button {
+            background-color: #474747e9; /* Цвет кнопок */
+            color: #fff; /* Цвет текста кнопок */
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem; /* Размер шрифта для кнопок */
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            margin: 0 10px;
+        }
+
+        .menu-button:hover {
+            background-color: #3cb371; /* Цвет кнопки при наведении */
+            transform: scale(1.05);
+        }
+
+        .menu-button:active {
+            transform: scale(0.95);
+            background-color: #2e8b57; /* Цвет кнопки при нажатии */
+        }
+
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .flex-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Выравнивание по вертикали */
+            align-items: center; /* Выравнивание по горизонтали */
+            height: 300px; /* Высота контейнера */
+            border: 1px solid #00ff22;
+            margin-bottom: 20px;
+        }
+
+        .flex-item {
+            margin: 5px;
+            padding: 10px;
+            background-color: #3c3c3c; /* Цвет фона элементов */
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .flex-item:hover {
+            background-color: #4CAF50; /* Цвет при наведении */
+        }
+
+        .shift-right {
+            margin-right: auto; /* Смещение элемента вправо */
+        }
+
+        .flex-list {
+            display: flex;
+            flex-direction: column; /* Вертикальный список по умолчанию */
+            justify-content: center;
+            align-items: center;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .flex-list.horizontal {
+            flex-direction: row; /* Горизонтальный список */
+        }
+
+        .flex-list.reverse {
+            flex-direction: column-reverse; /* Обратный порядок */
+        }
+
+        footer {
+            background-color: #2e2e2e; /* Цвет фона футера */
+            text-align: center;
+            padding: 10px;
+            color: #B0BEC5; /* Цвет текста футера */
+        }
+
+        @media (min-width: 600px) {
+            .flex-list {
+                flex-direction: row; /* Горизонтальный список при ширине > 600px */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Flex</h1>
+    </div>
+    <nav>
+        <div class="menu">
+            <button class="menu-button" onclick="GoToHeadPage()">Главная</button>
+            <button class="menu-button" onclick="GoToAnimation()">Переход к странице "Переходы"</button>
+        </div>
+    </nav>
+    <div class="content">
+        <h2>Выравнивание текста по вертикали и горизонтали:</h2>
+        <div class="flex-container">
+            <div class="flex-item">Событие 1</div>
+            <div class="flex-item">Событие 2</div>
+            <div class="flex-item shift-right">Смещенный Событие</div>
+        </div>
+
+        <h2>Список:</h2>
+        <ul class="flex-list">
+            <li class="flex-item">Событие A</li>
+            <li class="flex-item">Событие B</li>
+            <li class="flex-item">Событие C</li>
+            <li class="flex-item">Событие D</li>
+        </ul>
+
+        <h2>Список в обратном порядке:</h2>
+        <ul class="flex-list reverse">
+            <li class="flex-item">Событие D</li>
+            <li class="flex-item">Событие C</li>
+            <li class="flex-item">Событие B</li>
+            <li class="flex-item">Событие A</li>
+        </ul>
+    </div>
+    <footer>
+        <p class="footer-text">Сообщение об авторских правах, <a href="mailto:example@example.com">katyatalan@yandex.by</a></p>
+    </footer>
+
+    <script>
+        function GoToHeadPage() {
+            window.location.href = 'index.html';
+        }
+
+        function GoToAnimation() {
+            window.location.href = 'anim.html';
+        }
+    </script>
+</body>
+</html>
