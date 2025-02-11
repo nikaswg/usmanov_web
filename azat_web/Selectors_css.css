@@ -133,4 +133,5 @@ footer {
     text-align: center;
     padding: 15px; /* Увеличенные отступы */
     color: #00bfff; /* Светло-голубой текст */
+    margin-left: 1px;
 }

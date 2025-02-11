@@ -6,42 +6,41 @@
     <title>Японский кроссворд</title>
     <style>
 body {
-    font-family: 'Courier New', sans-serif; /* Изменяем шрифт на Roboto */
+    font-family: 'Courier New', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 150vh;
     margin: 0;
-    background-color: #f0f8ff; /* Бело-голубой фон */
-    color: #2e8b57; /* Зеленый текст */
+    background-color: #1a1a1a; /* Темно-серый фон */
+    color: #00bfff; /* Светло-голубой текст */
 }
 
 .menu-button {
-            background-color: #2e8b57; /* Зеленый фон кнопок */
-            color: #ffffff;
-            border: none;
-            padding: 15px 30px; /* Увеличенные отступы */
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 20px; /* Увеличенный размер шрифта для кнопок */
-            border-radius: 5px; /* Полуокруглые углы */
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-            margin: 0 10px; /* Отступ между кнопками */
-        }
-        
-        .menu-button:hover {
-            background-color: #1e90ff; /* Голубой при наведении */
-            transform: scale(1.05);
-        }
-        
-        .menu-button:active {
-            background-color: #32cd32; /* Зеленый при нажатии */
-            transform: scale(0.95);
-        }
+    background-color: #00bfff; /* Ярко-голубой фон кнопок */
+    color: #1a1a1a; /* Темно-серый текст */
+    border: none;
+    padding: 15px 30px; /* Увеличенные отступы */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px; /* Увеличенный размер шрифта для кнопок */
+    border-radius: 5px; /* Полуокруглые углы */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    margin: 0 10px; /* Отступ между кнопками */
+}
 
+.menu-button:hover {
+    background-color: #1e90ff; /* Голубой при наведении */
+    transform: scale(1.05);
+}
+
+.menu-button:active {
+    background-color: #007acc; /* Темно-голубой при нажатии */
+    transform: scale(0.95);
+}
 
 .crossword-container {
     display: flex;
@@ -52,7 +51,7 @@ body {
 
 .grid-title {
     font-size: 2rem; /* Размер шрифта заголовка */
-    color: #BB86FC; /* Цвет заголовка */
+    color: #00bfff; /* Ярко-голубой цвет заголовка */
     margin-bottom: 20px; /* Отступ снизу */
     text-align: center; /* Центрирование заголовка */
     text-shadow: 
@@ -71,11 +70,11 @@ body {
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    background-color: #ffffff; /* Темный фон для подсказок */
-    border: 1px solid #2e8b57; /* Цвет рамки */
+    background-color: #333; /* Темный фон для подсказок */
+    border: 1px solid #00bfff; /* Цвет рамки */
     text-align: center;
     line-height: 1.2;
-    color: #2e8b57; /* Цвет текста подсказок */
+    color: #00bfff; /* Цвет текста подсказок */
 }
 
 .hints-row {
@@ -105,8 +104,8 @@ body {
     position: relative;
     width: 50px;
     height: 50px;
-    border: 1px solid #2e8b57; /* Цвет рамки ячеек */
-    background-color: #ffffff; /* Темный фон ячеек */
+    border: 1px solid #00bfff; /* Цвет рамки ячеек */
+    background-color: #ffffff; /* Белый фон ячеек */
     cursor: pointer;
 }
 
@@ -119,11 +118,11 @@ body {
 }
 
 .cell input[type="checkbox"]:checked + label {
-    background-color: #2e8b57; /* Цвет при выборе */
+    background-color: #00bfff; /* Цвет при выборе */
 }
 
 .black {
-    background-color: #000;
+    background-color: #000; /* Черный цвет для выбранных ячеек */
 }
 
 .cell label {
@@ -136,26 +135,25 @@ body {
 
 .cell:hover {
     background-color: #333; /* Цвет фона при наведении */
-    color: #2e8b57; /* Цвет текста при наведении */
+    color: #00bfff; /* Цвет текста при наведении */
 }  
 
 .header {
-            text-align: center;
-            position: relative;
-            margin-top: 50px;
-            margin-bottom: 40px;
-        }
+    text-align: center;
+    position: relative;
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
 
-        .header h1 {
-            font-family: 'UnifrakturCook', cursive;
-            font-size: 4rem;
-            color: #2e8b57;
-            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.7),
-                3px 3px 0 rgba(255, 255, 255, 0.3);
-            z-index: 1;
-            position: relative;
-        }
-
+.header h1 {
+    font-family: 'UnifrakturCook', cursive;
+    font-size: 4rem;
+    color: #00bfff; /* Ярко-голубой текст */
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.7),
+        3px 3px 0 rgba(255, 255, 255, 0.3);
+    z-index: 1;
+    position: relative;
+}
 </style>
 </head>
 <body>

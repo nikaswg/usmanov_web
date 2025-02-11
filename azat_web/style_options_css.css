@@ -1,6 +1,6 @@
 /* Общие стили */
 body {
-    font-family: 'Courier New', sans-serif; /* Заменён шрифт на Nunito */
+    font-family: 'Nunito', sans-serif; /* Заменён шрифт на Nunito */
     margin: 0;
     padding: 0;
     background-color: #1a1a1a; /* Темно-серый фон */

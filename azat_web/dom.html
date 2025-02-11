@@ -12,8 +12,8 @@ body {
     font-family: 'Courier New', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f8ff;
-    color: #2e8b57;
+    background-color: #1a1a1a; /* Темно-серый фон */
+    color: #00bfff; /* Светло-голубой текст */
 }
 
 .header {
@@ -24,7 +24,7 @@ body {
 .header h1 {
     font-family: 'Lobster', cursive;
     font-size: 6rem;
-    color: #1e90ff;
+    color: #00bfff; /* Ярко-голубой */
     text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.7), 
                  3px 3px 0 rgba(255, 255, 255, 0.3);
 }
@@ -32,7 +32,7 @@ body {
 nav {
     display: flex;
     align-items: center;
-    background-color: #e0f7fa;
+    background-color: #333; /* Темно-серый фон для навигации */
     padding: 15px 30px;
     justify-content: space-between;
 }
@@ -44,8 +44,8 @@ nav {
 }
 
 .menu-button {
-    background-color: #2e8b57;
-    color: #ffffff;
+    background-color: #00bfff; /* Ярко-голубой фон кнопок */
+    color: #1a1a1a; /* Темно-серый текст */
     border: none;
     padding: 15px 30px;
     font-size: 1.5rem;
@@ -57,12 +57,12 @@ nav {
 }
 
 .menu-button:hover {
-    background-color: #1e90ff;
+    background-color: #1e90ff; /* Голубой при наведении */
     transform: scale(1.1);
 }
 
 .menu-button:active {
-    background-color: #32cd32;
+    background-color: #007acc; /* Темно-голубой при нажатии */
     transform: scale(0.95);
 }
 
@@ -74,24 +74,21 @@ nav {
 .transform-row {
     display: flex;
     justify-content: center;
-    gap: 20px; /* Отступы между коробочками */
+    gap: 20px; /* Отступы между фигурами */
     margin: 20px 0;
 }
 
-.box {
-    border-style: solid;
-    border-width: 0px;
+.circle {
+    border-radius: 50%; /* Делаем круг */
     width: 150px;
     height: 150px;
-    background-color: #ee00ff;
-    transition: width 0.5s, height 0.5s, background-color 0.5s, transform 0.5s;
+    background-color: #00bfff; /* Ярко-голубой */
+    transition: background-color 0.5s, transform 0.5s;
 }
 
-.box:hover {
-    background-color: #ffcccc;
-    width: 200px;
-    height: 200px;
-    transform: rotate(180deg);
+.circle:hover {
+    background-color: #1e90ff; /* Темно-голубой при наведении */
+    transform: scale(1.2) rotate(360deg); /* Увеличение и вращение */
 }
 
 .hidden {
@@ -100,7 +97,7 @@ nav {
 
 .animated-text {
     font-size: 2rem;
-    color: #2e8b57;
+    color: #00bfff; /* Ярко-голубой текст */
     position: relative;
     display: inline-block;
     white-space: nowrap;
@@ -127,10 +124,10 @@ nav {
 }
 
 footer {
-    background-color: #e0f7fa; /* Светлый фон */
+    background-color: #333; /* Темно-серый фон */
     text-align: center;
     padding: 15px; /* Увеличенные отступы */
-    color: #2e8b57; /* Зеленый текст */
+    color: #00bfff; /* Ярко-голубой текст */
 }
     </style>
 </head>
@@ -156,9 +153,9 @@ footer {
         <div id="window-pos"></div>
         
         <div class="transform-row">
-            <div id="element1" class="box"></div>
-            <div id="element2" class="box"></div>
-            <div id="element3" class="box"></div>
+            <div id="element1" class="circle"></div>
+            <div id="element2" class="circle"></div>
+            <div id="element3" class="circle"></div>
         </div>
         <button id="change-text" class="menu-button">Изменить текст</button>
         <button id="change-color" class="menu-button">Изменить цвет</button>
@@ -168,7 +165,7 @@ footer {
     </div>
 
     <footer>
-        <p>&copy; 2024 Ковалева Ирина Геннадьевна. Все права защищены.</p>
+        <p>&copy; 2024 Байрамов Азат Гуйчмамедович. Все права защищены.</p>
         <p>Email: example@gmail.com</p>
     </footer>
 
