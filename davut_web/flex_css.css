@@ -1,0 +1,130 @@
+/* Общие стили */
+body {
+    font-family: 'Courier New', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2e2e2e; /* Темно-серый фон */
+    color: #ffeb3b; /* Ярко-желтый текст */
+}
+
+.header {
+    text-align: center;
+    margin: 75px 0 60px;
+}
+
+.header h1 {
+    font-family: 'Lobster', cursive;
+    font-size: 6rem;
+    color: #ff5722; /* Ярко-оранжевый */
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.7), 
+                 3px 3px 0 rgba(255, 255, 255, 0.3);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    background-color: #444; /* Темно-серый фон для навигации */
+    padding: 15px 30px;
+    justify-content: space-between;
+}
+
+.menu {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+}
+
+.menu-button {
+    background-color: #ff5722; /* Ярко-оранжевый фон кнопок */
+    color: #ffffff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    margin: 0 10px;
+}
+
+.menu-button:hover {
+    background-color: #ff7043; /* Светло-оранжевый при наведении */
+    transform: scale(1.1);
+}
+
+.menu-button:active {
+    background-color: #f4511e; /* Темно-оранжевый при нажатии */
+    transform: scale(0.95);
+}
+
+.content {
+    padding: 20px;
+    text-align: center;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column; /* Вертикальное расположение */
+    justify-content: center; /* Выравнивание по вертикали */
+    align-items: center; /* Выравнивание по горизонтали */
+    height: 300px; /* Высота контейнера */
+    border: 1px solid #ffeb3b; /* Цвет границы */
+    margin-bottom: 20px;
+}
+
+.flex-item {
+    margin: 5px;
+    padding: 10px;
+    background-color: #3c763d; /* Темный фон для элементов */
+    border-radius: 5px;
+    color: white;
+    transition: background-color 0.3s, transform 0.3s; /* Добавление анимации */
+}
+
+.flex-item:hover {
+    background-color: #ff5722; /* Цвет элемента при наведении */
+    animation: shake 0.5s forwards; /* Анимация при наведении */
+}
+
+@keyframes shake {
+    0% { transform: translate(0); }
+    25% { transform: translate(-5px, 0); }
+    50% { transform: translate(5px, 0); }
+    75% { transform: translate(-5px, 0); }
+    100% { transform: translate(0); }
+}
+
+.shift-right {
+    margin-left: auto; /* Смещение элемента вправо */
+}
+
+.flex-list {
+    display: flex;
+    flex-direction: column; /* Вертикальный список по умолчанию */
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+}
+
+.flex-list.horizontal {
+    flex-direction: row; /* Горизонтальный список */
+}
+
+.flex-list.reverse {
+    flex-direction: column-reverse; /* Обратный порядок */
+}
+
+footer {
+    background-color: #444; /* Темно-серый фон */
+    text-align: center;
+    padding: 15px;
+    color: #ffeb3b; /* Ярко-желтый текст */
+}
+
+/* Медиазапросы */
+@media (min-width: 600px) {
+    .flex-list {
+        flex-direction: row; /* Горизонтальный список при ширине > 600px */
+    }
+}

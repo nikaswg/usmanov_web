@@ -1,0 +1,168 @@
+/* Общие стили */
+body {
+    font-family: 'Courier New', sans-serif; /* Заменён шрифт на Nunito */
+    margin: 0;
+    padding: 0;
+    background-color: #2e2e2e; /* Темно-серый фон */
+    color: #ffeb3b; /* Ярко-желтый текст */
+    font-size: 1.5rem; /* Увеличение шрифта в 1.5 раза */
+}
+
+/* Заголовок */
+.header {
+    text-align: center;
+    margin: 75px 0 60px; /* Увеличены отступы */
+}
+
+.header h1 {
+    font-family: 'Lobster', cursive; /* Новый готический прописной шрифт */
+    font-size: 6rem; /* Увеличенный размер заголовка */
+    color: #ff5722; /* Ярко-оранжевый */
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.7),
+                 3px 3px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Навигация */
+nav {
+    display: flex;
+    align-items: center;
+    background-color: #444; /* Темно-серый фон для навигации */
+    padding: 15px 30px; /* Увеличенные отступы */
+    justify-content: space-between;
+}
+
+.menu {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+}
+
+.menu-button {
+    background-color: #ff5722; /* Ярко-оранжевый фон кнопок */
+    color: #ffffff; /* Белый текст */
+    border: none;
+    padding: 15px 30px; /* Увеличенные отступы */
+    font-size: 24px; /* Увеличенный размер шрифта для кнопок */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    margin: 0 10px;
+}
+
+.menu-button:hover {
+    background-color: #ff7043; /* Светло-оранжевый при наведении */
+    transform: scale(1.05);
+}
+
+.menu-button:active {
+    background-color: #f4511e; /* Темно-оранжевый при нажатии */
+    transform: scale(0.95);
+}
+
+/* Подвал */
+footer {
+    background-color: #444; /* Темно-серый фон */
+    text-align: center;
+    padding: 15px; /* Увеличенные отступы */
+    color: #ffeb3b; /* Ярко-желтый текст */
+}
+
+/* Задачи */
+.task {
+    margin: 30px; /* Увеличены отступы */
+    padding: 30px; /* Увеличенные отступы */
+    border: 1px solid #ccc;
+    background-color: #222; /* Темно-серый фон для задач */
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Прочие стили */
+.nb {
+    border: 1px solid black;
+    width: 50vw;
+    float: left;
+    color: white;
+    transition: 0.3ms;
+}
+
+.vertical-line {
+    display: flex;
+    border-left: 10px solid black;
+    border-right: 10px solid black;
+}
+
+.ground {
+    font-size: 3em; /* Увеличенный размер */
+    color: lightgray;
+}
+
+.poster {
+    color: brown;
+}
+
+.column-layout {
+    display: flex;
+    flex-direction: column;
+    column-count: 2;
+    column-gap: 20px;
+}
+
+.initial-letter {
+    float: left;
+    font-size: 3em; /* Увеличенный размер */
+    line-height: 1;
+    margin-right: 5px;
+}
+
+.scroll-area {
+    height: 285px; /* Увеличена высота */
+    overflow-y: auto; /* Прокрутка по вертикали */
+}
+
+.scroll-area-2 {
+    height: 225px; /* Увеличена высота */
+    overflow-y: auto; /* Прокрутка по вертикали */
+}
+
+.container {
+    margin-bottom: 30px; /* Увеличены отступы */
+}
+
+.block {
+    padding: 15px; /* Увеличенные отступы */
+    border: 1px solid #ddd;
+    background-color: #333; /* Темно-серый фон */
+}
+
+.inline {
+    display: inline; /* Строчный элемент */
+    padding: 7px; /* Увеличенные отступы */
+}
+
+.transformed-block {
+    display: inline-block; /* Преобразованный в строчный элемент */
+}
+
+.transformed-inline {
+    display: block; /* Преобразованный в блочный элемент */
+}
+
+.z-index-example {
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.text {
+    position: relative;
+    z-index: 2;
+    color: white;
+}

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <title>Объединённый HTML файл с анимацией</title>
+    <style>
+body {
+    font-family: 'Courier New', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff;
+    color: #2e8b57;
+}
+
+.header {
+    text-align: center;
+    margin: 75px 0 60px;
+}
+
+.header h1 {
+    font-family: 'Lobster', cursive;
+    font-size: 6rem;
+    color: #1e90ff;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.7), 
+                 3px 3px 0 rgba(255, 255, 255, 0.3);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    background-color: #e0f7fa;
+    padding: 15px 30px;
+    justify-content: space-between;
+}
+
+.menu {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+}
+
+.menu-button {
+    background-color: #2e8b57;
+    color: #ffffff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    margin: 0 10px;
+}
+
+.menu-button:hover {
+    background-color: #1e90ff;
+    transform: scale(1.1);
+}
+
+.menu-button:active {
+    background-color: #32cd32;
+    transform: scale(0.95);
+}
+
+.content {
+    padding: 20px;
+    text-align: center;
+}
+
+.transform-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Отступы между коробочками */
+    margin: 20px 0;
+}
+
+.box {
+    border-style: solid;
+    border-width: 0px;
+    width: 150px;
+    height: 150px;
+    background-color: #ee00ff;
+    transition: width 0.5s, height 0.5s, background-color 0.5s, transform 0.5s;
+}
+
+.box:hover {
+    background-color: #ffcccc;
+    width: 200px;
+    height: 200px;
+    transform: rotate(180deg);
+}
+
+.hidden {
+    display: none;
+}
+
+.animated-text {
+    font-size: 2rem;
+    color: #2e8b57;
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+    margin-bottom: 20px; /* Отступ под анимированным текстом */
+}
+
+@keyframes drawZ {
+    0% {
+        left: 200px; /* Влево */
+        top: 100px;
+    }
+    33% {
+        left: 0px; /* Вниз по диагонали */
+        top: 100px; /* Увеличиваем на 100px */
+    }
+    66% {
+        left: 200px; /* Вправо */
+        top: 0;
+    }
+    99% {
+        left: 0;
+        top: 0;
+    }
+}
+
+footer {
+    background-color: #e0f7fa; /* Светлый фон */
+    text-align: center;
+    padding: 15px; /* Увеличенные отступы */
+    color: #2e8b57; /* Зеленый текст */
+}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>DOM</h1>
+    </div>
+
+    <nav>
+        <div class="menu">
+            <button class="menu-button" onclick="GoToHead()">На главную</button>
+            <button id="open-doc" class="menu-button">Создание нового окна</button>
+            <button id="show-alert" class="menu-button">Показать alert</button>
+            <button id="show-confirm" class="menu-button">Показать confirm</button>
+            <button id="show-prompt" class="menu-button">Показать prompt</button>
+            <button id="show-lab2" class="menu-button">Показать задание 2</button>
+        </div>
+    </nav>
+
+    <div class="content">
+        <div id="result"></div>
+        <div id="window-size"></div>
+        <div id="window-pos"></div>
+        
+        <div class="transform-row">
+            <div id="element1" class="box"></div>
+            <div id="element2" class="box"></div>
+            <div id="element3" class="box"></div>
+        </div>
+        <button id="change-text" class="menu-button">Изменить текст</button>
+        <button id="change-color" class="menu-button">Изменить цвет</button>
+        <button id="change-font" class="menu-button">Изменить шрифт</button>
+
+        <div id="float-text-lab2" class="hidden animated-text">KFC</div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Ковалева Ирина Геннадьевна. Все права защищены.</p>
+        <p>Email: example@gmail.com</p>
+    </footer>
+
+    <script>
+        document.getElementById("open-doc").addEventListener("click", function(event) {
+            event.preventDefault();
+            const url = 'https://example.com/document.pdf'; 
+            window.open(url, '_blank', 'width=800,height=600');
+        });
+
+        document.getElementById("show-alert").addEventListener("click", function(event) {
+            event.preventDefault();
+            alert("Ахтунг");
+        });
+
+        document.getElementById("show-confirm").addEventListener("click", function(event) {
+            event.preventDefault();
+            const userConfirmed = confirm("Вы уверены?");
+            const resultDiv = document.getElementById("result");
+
+            if (userConfirmed) {
+                resultDiv.textContent = "OK";
+            } else {
+                resultDiv.textContent = "Отмена";
+            }
+        });
+
+        document.getElementById("show-prompt").addEventListener("click", function(event) {
+            event.preventDefault();
+            const userInput = prompt("Введите ваше имя:");
+            const resultDiv = document.getElementById("result");
+
+            if (userInput !== null && userInput.trim() !== "") {
+                resultDiv.textContent = "Введено: " + userInput;
+            } else {
+                resultDiv.textContent = "Пользователь не ввел данные или отменил ввод.";
+            }
+        });
+
+        window.addEventListener("resize", function() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            const sizeDiv = document.getElementById("window-size");
+
+            sizeDiv.textContent = `Текущие размеры окна: ширина = ${width}px, высота = ${height}px`;
+        });
+
+        window.addEventListener("load", function() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            const sizeDiv = document.getElementById("window-size");
+
+            sizeDiv.textContent = `Текущие размеры окна: ширина = ${width}px, высота = ${height}px`;
+        });
+
+        setInterval(function() {
+            const x = window.screenX;
+            const y = window.screenY;
+            const sizeDiv = document.getElementById("window-pos");
+
+            sizeDiv.textContent = `Текущее положение окна: X = ${x}px, Y = ${y}px`;
+        }, 1000); 
+
+        document.getElementById("change-text").addEventListener("click", function() {
+            document.getElementById("element1").textContent = "Предел";
+            document.getElementById("element2").textContent = "Производная";
+            document.getElementById("element3").textContent = "Интеграл";
+        });
+
+        document.getElementById("change-color").addEventListener("click", function() {
+            document.getElementById("element1").style.backgroundColor = "lightblue";
+            document.getElementById("element2").style.backgroundColor = "lightgreen";
+            document.getElementById("element3").style.backgroundColor = "lightcoral";
+        });
+
+        document.getElementById("change-font").addEventListener("click", function() {
+            document.getElementById("element1").style.fontFamily = "Courier New";
+            document.getElementById("element2").style.fontFamily = "Ubuntu";
+            document.getElementById("element3").style.fontFamily = "Arial";
+        });
+
+        function GoToHead() {
+            document.location.href = "1.html"
+        }
+
+        document.getElementById("show-lab2").addEventListener("click", function(event) {
+            event.preventDefault();
+            const text = document.getElementById("float-text-lab2");
+
+            if (text.classList.contains("hidden")) {
+                text.classList.remove("hidden");
+                text.style.animation = "drawZ 3s infinite"; // Запуск анимации при показе
+                this.innerHTML = "Скрыть задание 2";
+            } else {
+                text.classList.add("hidden"); 
+                text.style.animation = ""; // Остановка анимации при скрытии
+                this.innerHTML = "Показать задание 2";
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Пример</title>
+    <link rel="stylesheet" href="flex_css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="header">
+        <h1>Flex</h1>
+    </div>
+    <nav>
+        <div class="menu">
+            <button class="menu-button" onclick="GoToHeadPage()">Главная</button>
+            <button class="menu-button" onclick="GoToAnimation()">Переход к странице "Переходы"</button>
+        </div>
+    </nav>
+    <div class="content">
+        <h2>Выравнивание текста по вертикали и горизонтали:</h2>
+        <div class="flex-container">
+            <div class="flex-item">Элемент 1</div>
+            <div class="flex-item">Элемент 2</div>
+            <div class="flex-item shift-right">Смещенный элемент</div>
+        </div>
+
+        <h2>Список:</h2>
+        <ul class="flex-list">
+            <li class="flex-item">Элемент A</li>
+            <li class="flex-item">Элемент B</li>
+            <li class="flex-item">Элемент C</li>
+            <li class="flex-item">Элемент D</li>
+        </ul>
+
+        <h2>Список в обратном порядке:</h2>
+        <ul class="flex-list reverse">
+            <li class="flex-item">Элемент D</li>
+            <li class="flex-item">Элемент C</li>
+            <li class="flex-item">Элемент B</li>
+            <li class="flex-item">Элемент A</li>
+        </ul>
+    </div>
+    <footer>
+        <p>&copy; 2024 Ковалева Ирина Геннадьевна. Все права защищены.</p>
+        <p>Email: example@gmail.com</p>
+    </footer>
+
+    <script>
+        function GoToHeadPage() {
+            window.location.href = '1.html';
+        }
+
+        function GoToAnimation() {
+            window.location.href = 'animation.html';
+        }
+    </script>
+</body>
+</html>

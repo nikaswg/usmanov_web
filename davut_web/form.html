@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <title>Учет факультетов и сотрудников</title>
+    <style>
+        /* Общие стили */
+        body {
+    font-family: 'Courier New', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff;
+    color: #2e8b57;
+}
+
+.header {
+    text-align: center;
+    margin: 75px 0 60px;
+}
+
+.header h1 {
+    font-family: 'Lobster', cursive;
+    font-size: 6rem;
+    color: #1e90ff;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.7), 
+                 3px 3px 0 rgba(255, 255, 255, 0.3);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    background-color: #e0f7fa;
+    padding: 15px 30px;
+    justify-content: space-between;
+}
+
+.menu {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+}
+
+.menu-button {
+    background-color: #2e8b57;
+    color: #ffffff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    margin: 0 10px;
+}
+
+.menu-button:hover {
+    background-color: #1e90ff;
+    transform: scale(1.1);
+}
+
+.menu-button:active {
+    background-color: #32cd32;
+    transform: scale(0.95);
+
+        }
+        footer {
+    background-color: #e0f7fa; /* Светлый фон */
+    text-align: center;
+    padding: 15px; /* Увеличенные отступы */
+    color: #2e8b57; /* Зеленый текст */
+}
+        /* Стили для формы */
+        input, select {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #2e8b57;
+            border-radius: 5px;
+            background-color: #fffcfc;
+            color: #000000;
+            font-size: 14px;
+        }
+        input:focus, select:focus {
+            border-color: #2e8b57;
+            outline: none;
+        }
+        .required:after {
+            content: " *"; /* Звездочка для обязательного поля */
+            color: #2e8b57; /* Цвет звездочки */
+        }
+        /* Стили попапа */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #1E1E1E;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            z-index: 1000;
+            width: 80vw;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #1E1E1E;
+        }
+        th, td {
+            border: 1px solid #2e8b57;
+            padding: 10px;
+            text-align: left;
+            font-size: 14px;
+        }
+        th {
+            background-color: #2e8b57;
+            color: white;
+        }
+        tr:hover {
+            background-color: #3A3A3A;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Учет факультетов и сотрудников</h1>
+</div>
+
+<nav>
+    <div class="menu">
+        <button class="menu-button" onclick="location.href='1.html'">На главную</button>
+    </div>
+</nav>
+
+<form id="facultyForm">
+    <h3>Факультет</h3>
+    <label for="faculty-name" class="required">Название факультета:</label>
+    <input type="text" id="faculty-name" required>
+
+    <label for="dean-name">Декан факультета:</label>
+    <input type="text" id="dean-name">
+
+    <label for="dean-phone" class="required">Телефон деканата:</label>
+    <input type="tel" id="dean-phone" required>
+
+    <label for="department-count">Количество кафедр:</label>
+    <input type="number" id="department-count">
+
+    <h3>Кафедра</h3>
+    <label for="department-name" class="required">Название кафедры:</label>
+    <input type="text" id="department-name" required>
+
+    <label for="department-head">Заведующий кафедрой:</label>
+    <input type="text" id="department-head">
+
+    <label for="department-phone">Телефон кафедры:</label>
+    <input type="tel" id="department-phone">
+
+    <h3>Сотрудник</h3>
+    <label for="employee-surname" class="required">Фамилия сотрудника:</label>
+    <input type="text" id="employee-surname" required>
+
+    <label for="employee-address">Домашний адрес:</label>
+    <input type="text" id="employee-address">
+
+    <label for="employee-age">Возраст:</label>
+    <input type="number" id="employee-age">
+
+    <label for="employee-phone" class="required">Телефон:</label>
+    <input type="tel" id="employee-phone" required>
+
+    <h3>Дополнительные поля</h3>
+    <label for="website">Ссылка на сайт:</label>
+    <input type="url" id="website" placeholder="www.example.com">
+    
+    <label for="email">Электронная почта:</label>
+    <input type="email" id="email" placeholder="example@example.com">
+    
+    <label for="slider">Ползунок:</label>
+    <input type="range" id="slider" min="0" max="100" oninput="updateSliderValue()">
+    <div class="slider-value" id="sliderValue">Значение: 50</div>
+    
+    <label for="dropdown">Выберите опцию:</label>
+    <select id="dropdown">
+        <option value="">-- Выберите --</option>
+        <option value="option1">Опция 1</option>
+        <option value="option2">Опция 2</option>
+        <option value="option3">Опция 3</option>
+    </select>
+    
+    <label for="check1">CHeck1:</label>
+    <input type="text" id="check1">
+    
+    <label for="check2">CHeck2:</label>
+    <input type="text" id="check2">
+    
+    <label for="check3">CHeck3:</label>
+    <input type="text" id="check3">
+    
+    <label for="radio1">radio1:</label>
+    <input type="radio" id="radio1" name="radioGroup" value="1">
+    
+    <label for="radio2">radio2:</label>
+    <input type="radio" id="radio2" name="radioGroup" value="2">
+    
+    <label for="radio3">radio3:</label>
+    <input type="radio" id="radio3" name="radioGroup" value="3">
+
+    <label for="date">Дата (ДД.ММ.ГГ):</label>
+    <input type="date" id="date">
+
+    <label for="checkbox">Флажок:</label>
+    <input type="checkbox" id="checkbox">
+
+    <button type="button" class="menu-button" onclick="addData()">Отправить</button>
+    <button type="reset" class="menu-button">Сбросить</button>
+</form>
+
+<div class="overlay" id="overlay" onclick="closePopup()"></div>
+<div class="popup" id="popup">
+    <h3 id="popupTitle">Ошибка</h3>
+    <p id="popupMessage"></p>
+    <button class="menu-button" onclick="closePopup()">Закрыть</button>
+</div>
+
+<div class="overlay" id="overlaySuccess" onclick="closePopup()"></div>
+<div class="popup" id="popupSuccess">
+    <h3>Данные о факультете и сотрудниках</h3>
+    <table id="dataTable">
+        <thead>
+            <tr>
+                <th>Факультет</th>
+                <th>Декан</th>
+                <th>Телефон деканата</th>
+                <th>Кафедра</th>
+                <th>Заведующий кафедрой</th>
+                <th>Телефон кафедры</th>
+                <th>Сотрудник</th>
+                <th>Домашний адрес</th>
+                <th>Возраст</th>
+                <th>Телефон сотрудника</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <button class="menu-button" onclick="closeSuccessPopup()">Закрыть</button>
+</div>
+
+<footer>
+    <p>&copy; 2024 Ковалева Ирина Геннадьевна. Все права защищены.</p>
+    <p>Email: example@gmail.com</p>
+</footer>
+
+<script>
+    function addData() {
+        const requiredFields = document.querySelectorAll('#facultyForm input[required]');
+        let allFieldsFilled = true;
+        let errorMessage = '';
+
+        requiredFields.forEach(field => {
+            if (!field.value.trim()) {
+                allFieldsFilled = false;
+                errorMessage += `${field.previousElementSibling.textContent} не заполнено.\n`;
+            }
+        });
+
+        if (!allFieldsFilled) {
+            showErrorPopup(errorMessage);
+            return;
+        }
+
+        const table = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
+
+        const facultyName = document.getElementById('faculty-name').value;
+        const deanName = document.getElementById('dean-name').value;
+        const deanPhone = document.getElementById('dean-phone').value;
+        const departmentCount = document.getElementById('department-count').value;
+        const departmentName = document.getElementById('department-name').value;
+        const departmentHead = document.getElementById('department-head').value;
+        const departmentPhone = document.getElementById('department-phone').value;
+        const employeeSurname = document.getElementById('employee-surname').value;
+        const employeeAddress = document.getElementById('employee-address').value;
+        const employeeAge = document.getElementById('employee-age').value;
+        const employeePhone = document.getElementById('employee-phone').value;
+
+        const newRow = table.insertRow();
+        newRow.insertCell(0).textContent = facultyName;
+        newRow.insertCell(1).textContent = deanName;
+        newRow.insertCell(2).textContent = deanPhone;
+        newRow.insertCell(3).textContent = departmentName;
+        newRow.insertCell(4).textContent = departmentHead;
+        newRow.insertCell(5).textContent = departmentPhone;
+        newRow.insertCell(6).textContent = employeeSurname;
+        newRow.insertCell(7).textContent = employeeAddress;
+        newRow.insertCell(8).textContent = employeeAge;
+        newRow.insertCell(9).textContent = employeePhone;
+
+        document.getElementById('facultyForm').reset();
+        openSuccessPopup();
+    }
+
+    function showErrorPopup(message) {
+        document.getElementById('popupMessage').textContent = message;
+        document.getElementById('overlay').style.display = 'block';
+        document.getElementById('popup').style.display = 'block';
+    }
+
+    function openSuccessPopup() {
+        document.getElementById('overlaySuccess').style.display = 'block';
+        document.getElementById('popupSuccess').style.display = 'block';
+    }
+
+    function closePopup() {
+        document.getElementById('overlay').style.display = 'none';
+        document.getElementById('popup').style.display = 'none';
+    }
+
+    function closeSuccessPopup() {
+        document.getElementById('overlaySuccess').style.display = 'none';
+        document.getElementById('popupSuccess').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>

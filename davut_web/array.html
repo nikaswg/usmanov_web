@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Японский кроссворд</title>
+    <style>
+body {
+    font-family: 'Courier New', sans-serif; /* Изменяем шрифт на Roboto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150vh;
+    margin: 0;
+    background-color: #f0f8ff; /* Бело-голубой фон */
+    color: #2e8b57; /* Зеленый текст */
+}
+
+.menu-button {
+            background-color: #2e8b57; /* Зеленый фон кнопок */
+            color: #ffffff;
+            border: none;
+            padding: 15px 30px; /* Увеличенные отступы */
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px; /* Увеличенный размер шрифта для кнопок */
+            border-radius: 5px; /* Полуокруглые углы */
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            margin: 0 10px; /* Отступ между кнопками */
+        }
+        
+        .menu-button:hover {
+            background-color: #1e90ff; /* Голубой при наведении */
+            transform: scale(1.05);
+        }
+        
+        .menu-button:active {
+            background-color: #32cd32; /* Зеленый при нажатии */
+            transform: scale(0.95);
+        }
+
+
+.crossword-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+}
+
+.grid-title {
+    font-size: 2rem; /* Размер шрифта заголовка */
+    color: #BB86FC; /* Цвет заголовка */
+    margin-bottom: 20px; /* Отступ снизу */
+    text-align: center; /* Центрирование заголовка */
+    text-shadow: 
+        2px 2px 0 rgba(0, 0, 0, 0.7), 
+        3px 3px 0 rgba(255, 255, 255, 0.3); /* Тень для заголовка */
+}
+
+.hints-row, .hints-column {
+    display: flex;
+}
+
+.hints-row .hint, .hints-column .hint {
+    width: 48.5px;
+    height: 48.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    background-color: #ffffff; /* Темный фон для подсказок */
+    border: 1px solid #2e8b57; /* Цвет рамки */
+    text-align: center;
+    line-height: 1.2;
+    color: #2e8b57; /* Цвет текста подсказок */
+}
+
+.hints-row {
+    flex-direction: row;
+    align-items: center;
+    margin-left: auto; 
+}
+
+.hints-column {
+    flex-direction: column;
+    justify-content: flex-end; 
+    align-items: center; 
+}
+
+.grid-container {
+    display: flex;
+    align-items: flex-start; 
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(15, 50px);
+    grid-template-rows: repeat(15, 50px);    
+}
+
+.cell {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #2e8b57; /* Цвет рамки ячеек */
+    background-color: #ffffff; /* Темный фон ячеек */
+    cursor: pointer;
+}
+
+.cell input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.cell input[type="checkbox"]:checked + label {
+    background-color: #2e8b57; /* Цвет при выборе */
+}
+
+.black {
+    background-color: #000;
+}
+
+.cell label {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #ffffff; /* Цвет текста в ячейках */
+    transition: background-color 0.3s, color 0.3s; /* Плавный переход для фона и текста */
+}
+
+.cell:hover {
+    background-color: #333; /* Цвет фона при наведении */
+    color: #2e8b57; /* Цвет текста при наведении */
+}  
+
+.header {
+            text-align: center;
+            position: relative;
+            margin-top: 50px;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-family: 'UnifrakturCook', cursive;
+            font-size: 4rem;
+            color: #2e8b57;
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.7),
+                3px 3px 0 rgba(255, 255, 255, 0.3);
+            z-index: 1;
+            position: relative;
+        }
+
+</style>
+</head>
+<body>
+    <div class="crossword-container">
+        <div class="hints-row">
+            <!-- Заголовки для строк с горизонтальными подсказками -->
+            <div class="hint">15</div>
+            <div class="hint">2 2</div>
+            <div class="hint">1 1 1 1</div>
+            <div class="hint">1 1 1 1</div>
+            <div class="hint">1 1 1 1</div>
+            <div class="hint">1 1 1 1</div>
+            <div class="hint">1 1 1 1</div>
+            <div class="hint">1 1 1</div>
+            <div class="hint">1 1 1 1</div>
+            <div class="hint">1 1 1 1</div>
+            <div class="hint">1 1 1 1</div>
+            <div class="hint">1 1 1 1</div>
+            <div class="hint">1 1 1 1</div>
+            <div class="hint">2 2</div>
+            <div class="hint">15</div>
+        </div>
+        <div class="grid-container">
+            <div class="hints-column">
+                <!-- Заголовки для колонок с вертикальными подсказками -->
+                <div class="hint">15</div>
+                <div class="hint">2 2</div>
+                <div class="hint">1 1 1 1</div>
+                <div class="hint">1 1 1 1</div>
+                <div class="hint">1 1 1 1</div>
+                <div class="hint">1 1 1 1</div>
+                <div class="hint">1 1 1 1</div>
+                <div class="hint">1 1 1</div>
+                <div class="hint">1 1 1 1</div>
+                <div class="hint">1 1 1 1</div>
+                <div class="hint">1 1 1 1</div>
+                <div class="hint">1 1 1 1</div>
+                <div class="hint">1 1 1 1</div>
+                <div class="hint">2 2</div>
+                <div class="hint">15</div>
+            </div>
+            <div class="grid">
+                <!-- Ячейки с чекбоксами -->
+                <!-- String 1 -->
+                <div class="cell"><input type="checkbox" id="c1"><label for="c1"></label></div>
+                <div class="cell"><input type="checkbox" id="c2"><label for="c2"></label></div>
+                <div class="cell"><input type="checkbox" id="c3"><label for="c3"></label></div>
+                <div class="cell"><input type="checkbox" id="c4"><label for="c4"></label></div>
+                <div class="cell"><input type="checkbox" id="c5"><label for="c5"></label></div>
+                <div class="cell"><input type="checkbox" id="c6"><label for="c6"></label></div>
+                <div class="cell"><input type="checkbox" id="c7"><label for="c7"></label></div>
+                <div class="cell"><input type="checkbox" id="c8"><label for="c8"></label></div>
+                <div class="cell"><input type="checkbox" id="c9"><label for="c9"></label></div>
+                <div class="cell"><input type="checkbox" id="c10"><label for="c10"></label></div>
+                <div class="cell"><input type="checkbox" id="c11"><label for="c11"></label></div>
+                <div class="cell"><input type="checkbox" id="c12"><label for="c12"></label></div>
+                <div class="cell"><input type="checkbox" id="c13"><label for="c13"></label></div>
+                <div class="cell"><input type="checkbox" id="c14"><label for="c14"></label></div>
+                <div class="cell"><input type="checkbox" id="c15"><label for="c15"></label></div>
+
+                <!-- String 2 -->
+
+                <div class="cell"><input type="checkbox" id="c16"><label for="c16"></label></div>
+                <div class="cell"><input type="checkbox" id="c17"><label for="c17"></label></div>
+                <div class="cell"><input type="checkbox" id="c18"><label for="c18"></label></div>
+                <div class="cell"><input type="checkbox" id="c19"><label for="c19"></label></div>
+                <div class="cell"><input type="checkbox" id="c20"><label for="c20"></label></div>
+                <div class="cell"><input type="checkbox" id="c21"><label for="c21"></label></div>
+                <div class="cell"><input type="checkbox" id="c22"><label for="c22"></label></div>
+                <div class="cell"><input type="checkbox" id="c23"><label for="c23"></label></div>
+                <div class="cell"><input type="checkbox" id="c24"><label for="c24"></label></div>
+                <div class="cell"><input type="checkbox" id="c25"><label for="c25"></label></div>
+                <div class="cell"><input type="checkbox" id="c26"><label for="c26"></label></div>
+                <div class="cell"><input type="checkbox" id="c27"><label for="c27"></label></div>
+                <div class="cell"><input type="checkbox" id="c28"><label for="c28"></label></div>
+                <div class="cell"><input type="checkbox" id="c29"><label for="c29"></label></div>
+                <div class="cell"><input type="checkbox" id="c30"><label for="c30"></label></div>
+
+                <!-- String 3 -->
+
+                <div class="cell"><input type="checkbox" id="c31"><label for="c31"></label></div>
+                <div class="cell"><input type="checkbox" id="c32"><label for="c32"></label></div>
+                <div class="cell"><input type="checkbox" id="c33"><label for="c33"></label></div>
+                <div class="cell"><input type="checkbox" id="c34"><label for="c34"></label></div>
+                <div class="cell"><input type="checkbox" id="c35"><label for="c35"></label></div>
+                <div class="cell"><input type="checkbox" id="c36"><label for="c36"></label></div>
+                <div class="cell"><input type="checkbox" id="c37"><label for="c37"></label></div>
+                <div class="cell"><input type="checkbox" id="c38"><label for="c38"></label></div>
+                <div class="cell"><input type="checkbox" id="c39"><label for="c39"></label></div>
+                <div class="cell"><input type="checkbox" id="c40"><label for="c40"></label></div>
+                <div class="cell"><input type="checkbox" id="c41"><label for="c41"></label></div>
+                <div class="cell"><input type="checkbox" id="c42"><label for="c42"></label></div>
+                <div class="cell"><input type="checkbox" id="c43"><label for="c43"></label></div>
+                <div class="cell"><input type="checkbox" id="c44"><label for="c44"></label></div>
+                <div class="cell"><input type="checkbox" id="c45"><label for="c45"></label></div>
+
+                <!-- String 4 -->
+
+                <div class="cell"><input type="checkbox" id="c46"><label for="c46"></label></div>
+                <div class="cell"><input type="checkbox" id="c47"><label for="c47"></label></div>
+                <div class="cell"><input type="checkbox" id="c48"><label for="c48"></label></div>
+                <div class="cell"><input type="checkbox" id="c49"><label for="c49"></label></div>
+                <div class="cell"><input type="checkbox" id="c50"><label for="c50"></label></div>
+                <div class="cell"><input type="checkbox" id="c51"><label for="c51"></label></div>
+                <div class="cell"><input type="checkbox" id="c52"><label for="c52"></label></div>
+                <div class="cell"><input type="checkbox" id="c53"><label for="c53"></label></div>
+                <div class="cell"><input type="checkbox" id="c54"><label for="c54"></label></div>
+                <div class="cell"><input type="checkbox" id="c55"><label for="c55"></label></div>
+                <div class="cell"><input type="checkbox" id="c56"><label for="c56"></label></div>
+                <div class="cell"><input type="checkbox" id="c57"><label for="c57"></label></div>
+                <div class="cell"><input type="checkbox" id="c58"><label for="c58"></label></div>
+                <div class="cell"><input type="checkbox" id="c59"><label for="c59"></label></div>
+                <div class="cell"><input type="checkbox" id="c60"><label for="c60"></label></div>
+
+                <!-- String 5 -->
+
+                <div class="cell"><input type="checkbox" id="c61"><label for="c61"></label></div>
+                <div class="cell"><input type="checkbox" id="c62"><label for="c62"></label></div>
+                <div class="cell"><input type="checkbox" id="c63"><label for="c63"></label></div>
+                <div class="cell"><input type="checkbox" id="c64"><label for="c64"></label></div>
+                <div class="cell"><input type="checkbox" id="c65"><label for="c65"></label></div>
+                <div class="cell"><input type="checkbox" id="c66"><label for="c66"></label></div>
+                <div class="cell"><input type="checkbox" id="c67"><label for="c67"></label></div>
+                <div class="cell"><input type="checkbox" id="c68"><label for="c68"></label></div>
+                <div class="cell"><input type="checkbox" id="c69"><label for="c69"></label></div>
+                <div class="cell"><input type="checkbox" id="c70"><label for="c70"></label></div>
+                <div class="cell"><input type="checkbox" id="c71"><label for="c71"></label></div>
+                <div class="cell"><input type="checkbox" id="c72"><label for="c72"></label></div>
+                <div class="cell"><input type="checkbox" id="c73"><label for="c73"></label></div>
+                <div class="cell"><input type="checkbox" id="c74"><label for="c74"></label></div>
+                <div class="cell"><input type="checkbox" id="c75"><label for="c75"></label></div>
+
+                <!-- String 6 -->
+
+                <div class="cell"><input type="checkbox" id="c76"><label for="c76"></label></div>
+                <div class="cell"><input type="checkbox" id="c77"><label for="c77"></label></div>
+                <div class="cell"><input type="checkbox" id="c78"><label for="c78"></label></div>
+                <div class="cell"><input type="checkbox" id="c79"><label for="c79"></label></div>
+                <div class="cell"><input type="checkbox" id="c80"><label for="c80"></label></div>
+                <div class="cell"><input type="checkbox" id="c81"><label for="c81"></label></div>
+                <div class="cell"><input type="checkbox" id="c82"><label for="c82"></label></div>
+                <div class="cell"><input type="checkbox" id="c83"><label for="c83"></label></div>
+                <div class="cell"><input type="checkbox" id="c84"><label for="c84"></label></div>
+                <div class="cell"><input type="checkbox" id="c85"><label for="c85"></label></div>
+                <div class="cell"><input type="checkbox" id="c86"><label for="c86"></label></div>
+                <div class="cell"><input type="checkbox" id="c87"><label for="c87"></label></div>
+                <div class="cell"><input type="checkbox" id="c88"><label for="c88"></label></div>
+                <div class="cell"><input type="checkbox" id="c89"><label for="c89"></label></div>
+                <div class="cell"><input type="checkbox" id="c90"><label for="c90"></label></div>     
+
+                <!-- String 7 -->
+
+                <div class="cell"><input type="checkbox" id="c91"><label for="c91"></label></div>
+                <div class="cell"><input type="checkbox" id="c92"><label for="c92"></label></div>
+                <div class="cell"><input type="checkbox" id="c93"><label for="c93"></label></div>
+                <div class="cell"><input type="checkbox" id="c94"><label for="c94"></label></div>
+                <div class="cell"><input type="checkbox" id="c95"><label for="c95"></label></div>
+                <div class="cell"><input type="checkbox" id="c96"><label for="c96"></label></div>
+                <div class="cell"><input type="checkbox" id="c97"><label for="c97"></label></div>
+                <div class="cell"><input type="checkbox" id="c98"><label for="c98"></label></div>
+                <div class="cell"><input type="checkbox" id="c99"><label for="c99"></label></div>
+                <div class="cell"><input type="checkbox" id="c100"><label for="c100"></label></div>
+                <div class="cell"><input type="checkbox" id="c101"><label for="c101"></label></div>
+                <div class="cell"><input type="checkbox" id="c102"><label for="c102"></label></div>
+                <div class="cell"><input type="checkbox" id="c103"><label for="c103"></label></div>
+                <div class="cell"><input type="checkbox" id="c104"><label for="c104"></label></div>
+                <div class="cell"><input type="checkbox" id="c105"><label for="c105"></label></div>
+
+                <!-- String 8 -->
+
+                <div class="cell"><input type="checkbox" id="c106"><label for="c106"></label></div>
+                <div class="cell"><input type="checkbox" id="c107"><label for="c107"></label></div>
+                <div class="cell"><input type="checkbox" id="c108"><label for="c108"></label></div>
+                <div class="cell"><input type="checkbox" id="c109"><label for="c109"></label></div>
+                <div class="cell"><input type="checkbox" id="c110"><label for="c110"></label></div>
+                <div class="cell"><input type="checkbox" id="c111"><label for="c111"></label></div>
+                <div class="cell"><input type="checkbox" id="c112"><label for="c112"></label></div>
+                <div class="cell"><input type="checkbox" id="c113"><label for="c113"></label></div>
+                <div class="cell"><input type="checkbox" id="c114"><label for="c114"></label></div>
+                <div class="cell"><input type="checkbox" id="c115"><label for="c115"></label></div>
+                <div class="cell"><input type="checkbox" id="c116"><label for="c116"></label></div>
+                <div class="cell"><input type="checkbox" id="c117"><label for="c117"></label></div>
+                <div class="cell"><input type="checkbox" id="c118"><label for="c118"></label></div>
+                <div class="cell"><input type="checkbox" id="c119"><label for="c119"></label></div>
+                <div class="cell"><input type="checkbox" id="c120"><label for="c120"></label></div>
+
+                <!-- String 9 -->
+
+                <div class="cell"><input type="checkbox" id="c121"><label for="c121"></label></div>
+                <div class="cell"><input type="checkbox" id="c122"><label for="c122"></label></div>
+                <div class="cell"><input type="checkbox" id="c123"><label for="c123"></label></div>
+                <div class="cell"><input type="checkbox" id="c124"><label for="c124"></label></div>
+                <div class="cell"><input type="checkbox" id="c125"><label for="c125"></label></div>
+                <div class="cell"><input type="checkbox" id="c126"><label for="c126"></label></div>
+                <div class="cell"><input type="checkbox" id="c127"><label for="c127"></label></div>
+                <div class="cell"><input type="checkbox" id="c128"><label for="c128"></label></div>
+                <div class="cell"><input type="checkbox" id="c129"><label for="c129"></label></div>
+                <div class="cell"><input type="checkbox" id="c130"><label for="c130"></label></div>
+                <div class="cell"><input type="checkbox" id="c131"><label for="c131"></label></div>
+                <div class="cell"><input type="checkbox" id="c132"><label for="c132"></label></div>
+                <div class="cell"><input type="checkbox" id="c133"><label for="c133"></label></div>
+                <div class="cell"><input type="checkbox" id="c134"><label for="c134"></label></div>
+                <div class="cell"><input type="checkbox" id="c135"><label for="c135"></label></div>
+
+                <!-- String 10 -->
+
+                <div class="cell"><input type="checkbox" id="c136"><label for="c136"></label></div>
+                <div class="cell"><input type="checkbox" id="c137"><label for="c137"></label></div>
+                <div class="cell"><input type="checkbox" id="c138"><label for="c138"></label></div>
+                <div class="cell"><input type="checkbox" id="c139"><label for="c139"></label></div>
+                <div class="cell"><input type="checkbox" id="c140"><label for="c140"></label></div>
+                <div class="cell"><input type="checkbox" id="c141"><label for="c141"></label></div>
+                <div class="cell"><input type="checkbox" id="c142"><label for="c142"></label></div>
+                <div class="cell"><input type="checkbox" id="c143"><label for="c143"></label></div>
+                <div class="cell"><input type="checkbox" id="c144"><label for="c144"></label></div>
+                <div class="cell"><input type="checkbox" id="c145"><label for="c145"></label></div>
+                <div class="cell"><input type="checkbox" id="c146"><label for="c146"></label></div>
+                <div class="cell"><input type="checkbox" id="c147"><label for="c147"></label></div>
+                <div class="cell"><input type="checkbox" id="c148"><label for="c148"></label></div>
+                <div class="cell"><input type="checkbox" id="c149"><label for="c149"></label></div>
+                <div class="cell"><input type="checkbox" id="c150"><label for="c150"></label></div>
+
+                <!-- String 11 -->
+
+                <div class="cell"><input type="checkbox" id="c151"><label for="c151"></label></div>
+                <div class="cell"><input type="checkbox" id="c152"><label for="c152"></label></div>
+                <div class="cell"><input type="checkbox" id="c153"><label for="c153"></label></div>
+                <div class="cell"><input type="checkbox" id="c154"><label for="c154"></label></div>
+                <div class="cell"><input type="checkbox" id="c155"><label for="c155"></label></div>
+                <div class="cell"><input type="checkbox" id="c156"><label for="c156"></label></div>
+                <div class="cell"><input type="checkbox" id="c157"><label for="c157"></label></div>
+                <div class="cell"><input type="checkbox" id="c158"><label for="c158"></label></div>
+                <div class="cell"><input type="checkbox" id="c159"><label for="c159"></label></div>
+                <div class="cell"><input type="checkbox" id="c160"><label for="c160"></label></div>
+                <div class="cell"><input type="checkbox" id="c161"><label for="c161"></label></div>
+                <div class="cell"><input type="checkbox" id="c162"><label for="c162"></label></div>
+                <div class="cell"><input type="checkbox" id="c163"><label for="c163"></label></div>
+                <div class="cell"><input type="checkbox" id="c164"><label for="c164"></label></div>
+                <div class="cell"><input type="checkbox" id="c165"><label for="c165"></label></div>
+
+                <!-- String 12 -->
+
+                <div class="cell"><input type="checkbox" id="c166"><label for="c166"></label></div>
+                <div class="cell"><input type="checkbox" id="c167"><label for="c167"></label></div>
+                <div class="cell"><input type="checkbox" id="c168"><label for="c168"></label></div>
+                <div class="cell"><input type="checkbox" id="c169"><label for="c169"></label></div>
+                <div class="cell"><input type="checkbox" id="c170"><label for="c170"></label></div>
+                <div class="cell"><input type="checkbox" id="c171"><label for="c171"></label></div>
+                <div class="cell"><input type="checkbox" id="c172"><label for="c172"></label></div>
+                <div class="cell"><input type="checkbox" id="c173"><label for="c173"></label></div>
+                <div class="cell"><input type="checkbox" id="c174"><label for="c174"></label></div>
+                <div class="cell"><input type="checkbox" id="c175"><label for="c175"></label></div>
+                <div class="cell"><input type="checkbox" id="c176"><label for="c176"></label></div>
+                <div class="cell"><input type="checkbox" id="c177"><label for="c177"></label></div>
+                <div class="cell"><input type="checkbox" id="c178"><label for="c178"></label></div>
+                <div class="cell"><input type="checkbox" id="c179"><label for="c179"></label></div>
+                <div class="cell"><input type="checkbox" id="c180"><label for="c180"></label></div>
+
+                <!-- String 13 -->
+                 
+                <div class="cell"><input type="checkbox" id="c181"><label for="c181"></label></div>
+                <div class="cell"><input type="checkbox" id="c182"><label for="c182"></label></div>
+                <div class="cell"><input type="checkbox" id="c183"><label for="c183"></label></div>
+                <div class="cell"><input type="checkbox" id="c184"><label for="c184"></label></div>
+                <div class="cell"><input type="checkbox" id="c185"><label for="c185"></label></div>
+                <div class="cell"><input type="checkbox" id="c186"><label for="c186"></label></div>
+                <div class="cell"><input type="checkbox" id="c187"><label for="c187"></label></div>
+                <div class="cell"><input type="checkbox" id="c188"><label for="c188"></label></div>
+                <div class="cell"><input type="checkbox" id="c189"><label for="c189"></label></div>
+                <div class="cell"><input type="checkbox" id="c190"><label for="c190"></label></div>
+                <div class="cell"><input type="checkbox" id="c191"><label for="c191"></label></div>
+                <div class="cell"><input type="checkbox" id="c192"><label for="c192"></label></div>
+                <div class="cell"><input type="checkbox" id="c193"><label for="c193"></label></div>
+                <div class="cell"><input type="checkbox" id="c194"><label for="c194"></label></div>
+                <div class="cell"><input type="checkbox" id="c195"><label for="c195"></label></div>
+
+                <!-- String 14 -->
+
+                <div class="cell"><input type="checkbox" id="c196"><label for="c196"></label></div>
+                <div class="cell"><input type="checkbox" id="c197"><label for="c197"></label></div>
+                <div class="cell"><input type="checkbox" id="c198"><label for="c198"></label></div>
+                <div class="cell"><input type="checkbox" id="c199"><label for="c199"></label></div>
+                <div class="cell"><input type="checkbox" id="c200"><label for="c200"></label></div>
+                <div class="cell"><input type="checkbox" id="c201"><label for="c201"></label></div>
+                <div class="cell"><input type="checkbox" id="c202"><label for="c202"></label></div>
+                <div class="cell"><input type="checkbox" id="c203"><label for="c203"></label></div>
+                <div class="cell"><input type="checkbox" id="c204"><label for="c204"></label></div>
+                <div class="cell"><input type="checkbox" id="c205"><label for="c205"></label></div>
+                <div class="cell"><input type="checkbox" id="c206"><label for="c206"></label></div>
+                <div class="cell"><input type="checkbox" id="c207"><label for="c207"></label></div>
+                <div class="cell"><input type="checkbox" id="c208"><label for="c208"></label></div>
+                <div class="cell"><input type="checkbox" id="c209"><label for="c209"></label></div>
+                <div class="cell"><input type="checkbox" id="c210"><label for="c210"></label></div>
+
+                <!-- String 15 -->
+                 
+                <div class="cell"><input type="checkbox" id="c211"><label for="c211"></label></div>
+                <div class="cell"><input type="checkbox" id="c212"><label for="c212"></label></div>
+                <div class="cell"><input type="checkbox" id="c213"><label for="c213"></label></div>
+                <div class="cell"><input type="checkbox" id="c214"><label for="c214"></label></div>
+                <div class="cell"><input type="checkbox" id="c215"><label for="c215"></label></div>
+                <div class="cell"><input type="checkbox" id="c216"><label for="c216"></label></div>
+                <div class="cell"><input type="checkbox" id="c217"><label for="c217"></label></div>
+                <div class="cell"><input type="checkbox" id="c218"><label for="c218"></label></div>
+                <div class="cell"><input type="checkbox" id="c219"><label for="c219"></label></div>
+                <div class="cell"><input type="checkbox" id="c220"><label for="c220"></label></div>
+                <div class="cell"><input type="checkbox" id="c221"><label for="c221"></label></div>
+                <div class="cell"><input type="checkbox" id="c222"><label for="c222"></label></div>
+                <div class="cell"><input type="checkbox" id="c223"><label for="c223"></label></div>
+                <div class="cell"><input type="checkbox" id="c224"><label for="c224"></label></div>
+                <div class="cell"><input type="checkbox" id="c225"><label for="c225"></label></div>
+            </div>
+        </div>
+        <div id="element" class="changable">Нажмите кнопку снизу для проверки</div>
+        <div id="element1" class="changable"></div>
+        <button class="menu-button" id="check-button">Проверка</button>
+        <div id="element2" class="changable">Нажмите кнопку снизу для сброса рисунка</div>
+        <button class="menu-button" id="retry-button">Сбросить</button>
+        <div id="element3" class="changable">Нажмите кнопку снизу для демонстрации ответа</div>
+        <button class="menu-button" id="cheat-button">Показать ответ</button>     
+        <div id="element4" class="changable">Перейти на главную</div>
+        <button class="menu-button" onclick="GoToHead()">На главную</button>
+    </div>
+
+
+    <script>
+        var cells = document.getElementsByClassName("cell");
+        var gridArray = Array.from({ length: 15 }, () => Array(15).fill(0));
+        var gridArray1 = [
+            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1],
+            [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1],
+            [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1],
+            [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+            [1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+            [1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1],
+            [1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1],
+            [1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1],
+            [1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+            [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+            [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1],
+            [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1],
+            [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        ];
+
+        for (var i = 0; i < cells.length; i++) {
+            cells[i].addEventListener("click", function(event) {
+                event.preventDefault(); 
+                this.classList.toggle("black");
+                var Id = this.querySelector('input[type="checkbox"]').id.substring(1); 
+                var row = Math.floor((Id - 1) / 15); 
+                var col = (Id - 1) % 15; 
+                gridArray[row][col] = gridArray[row][col] === 0 ? 1 : 0;
+            });                                                                                                                                                                                 
+        }
+
+        document.getElementById("check-button").addEventListener("click", function(event) {
+            if (arraysEqual(gridArray, gridArray1)) {
+                alert("ПРАВИЛЬНО");
+            } else {
+                alert("НЕ ПРАВИЛЬНО");
+            }
+        });
+
+        document.getElementById("retry-button").addEventListener("click", function(event) {
+            for (var i = 0; i < cells.length; i++) {
+                cells[i].classList.remove("black");
+            }
+        });
+
+        document.getElementById("cheat-button").addEventListener("click", function(event) {
+            for (var i = 0; i < cells.length; i++) {
+                var row = Math.floor(i / 15);  
+                var col = i % 15;              
+                if (gridArray1[row][col] === 0) {
+                    cells[i].classList.remove("black");
+                } else {
+                    cells[i].classList.add("black");
+                }
+            }
+        });
+
+        function arraysEqual(arr1, arr2) {
+            return arr1.length === arr2.length && 
+                   arr1.every((row, i) => row.length === arr2[i].length && 
+                   row.every((val, j) => val === arr2[i][j]));
+        }
+
+        function GoToHead() {
+            window.location.href = "1.html";
+        }
+            </script>
+</body>
+</html>

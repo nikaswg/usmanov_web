@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сайт(да название гениальное)</title>
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <style>/* Общие стили */
+/* Общие стили */
+body {
+    font-family: 'Courier New', cursive;
+    margin: 0;
+    padding: 0;
+    background-color: #2e2e2e; /* Темно-серый фон */
+    color: #ffeb3b; /* Ярко-желтый текст */
+    font-size: 1.5rem; /* Увеличение шрифта в 1.5 раза */
+}
+
+/* Заголовок */
+.header {
+    text-align: center;
+    position: relative;
+    margin-top: 30px; /* Уменьшенный отступ */
+    margin-bottom: 30px; /* Уменьшенный отступ */
+}
+
+.header h1 {
+    font-family: 'Lobster', sans-serif; /* Новый готический прописной шрифт */
+    font-size: 4rem; /* Увеличенный размер заголовка */
+    color: #ff5722; /* Ярко-оранжевый */
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.7),
+        3px 3px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Навигация */
+nav {
+    display: flex;
+    align-items: center; /* Выравнивание по вертикали */
+    background-color: #444; /* Темно-серый фон для навигации */
+    padding: 15px 30px; /* Увеличенные отступы */
+}
+
+.nav-image {
+    width: 100px; /* Установите ширину, совпадающую с кнопками */
+    height: auto; /* Автоматическая высота для сохранения пропорций */
+    margin: 0 10px; /* Отступы по бокам */
+}
+
+.menu {
+    display: flex;
+    flex-grow: 1; /* Занять доступное пространство */
+    justify-content: space-around; /* Равномерное распределение кнопок */
+}
+
+.menu-button {
+    background-color: #ff5722; /* Ярко-оранжевый фон кнопок */
+    color: #ffffff; /* Белый текст */
+    border: none;
+    padding: 15px 30px; /* Увеличенные отступы */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px; /* Увеличенный размер шрифта для кнопок */
+    border-radius: 5px; /* Полуокруглые углы */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    margin: 0 10px; /* Отступ между кнопками */
+}
+
+.menu-button:hover {
+    background-color: #ff7043; /* Светло-оранжевый при наведении */
+    transform: scale(1.05);
+}
+
+.menu-button:active {
+    background-color: #f4511e; /* Темно-оранжевый при нажатии */
+    transform: scale(0.95);
+}
+
+/* Подменю */
+.submenu {
+    display: none;
+    margin-top: 20px;
+    padding: 15px; /* Увеличенные отступы */
+    background-color: #333; /* Темно-серый фон */
+}
+
+/* Flex контейнер */
+.flex-container {
+    display: flex;
+    margin-top: 20px;
+    flex-direction: row-reverse;
+}
+
+/* Секции навигации и контента */
+.nav-section {
+    flex: 2;
+    padding-right: 10px; /* Уменьшенный отступ */
+}
+
+.content-section {
+    flex: 1;
+}
+
+/* Блоки контента */
+.content-block {
+    display: none;
+    padding: 15px; /* Увеличенные отступы */
+    margin-top: 10px;
+    background-color: #444; /* Темно-серый фон */
+    border-radius: 5px; /* Полуокруглые углы */
+    color: #ffeb3b; /* Ярко-желтый текст */
+}
+
+.content-block.active {
+    display: block;
+}
+
+/* Таблицы */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    background-color: #333; /* Темно-серый фон */
+}
+
+th {
+    background-color: #ff5722; /* Ярко-оранжевый */
+    color: white;
+    text-align: left;
+    padding: 12px; /* Увеличенные отступы */
+}
+
+td {
+    border: 1px solid #ccc; /* Светло-серая граница */
+    padding: 12px; /* Увеличенные отступы */
+}
+
+/* Подвал */
+footer {
+    background-color: #444; /* Темно-серый фон */
+    text-align: center;
+    padding: 15px; /* Увеличенные отступы */
+    color: #ffeb3b; /* Ярко-желтый текст */
+}
+
+/* Сводка */
+summary {
+    cursor: pointer;
+    font-weight: bold;
+    color: #ff5722; /* Ярко-оранжевый */
+}
+
+/* Кнопки навигации */
+.nav-button {
+    font-size: 16px; /* Увеличенный размер шрифта для кнопок */
+    background-color: #ff5722; /* Ярко-оранжевый фон */
+    color: #ffffff; /* Белый текст */
+    border: none;
+    padding: 15px; /* Увеличенные отступы */
+    margin: 5px 0;
+    width: 100%;
+    text-align: left;
+    border-radius: 5px; /* Полуокруглые углы */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.nav-button:hover {
+    background-color: #ff7043; /* Светло-оранжевый при наведении */
+    transform: scale(1.05);
+}
+
+.nav-button:active {
+    background-color: #f4511e; /* Темно-оранжевый при нажатии */
+    transform: scale(0.95);
+}
+
+/* Дополнительные кнопки */
+.nav-button-1 {
+    font-size: 16px; /* Увеличенный размер шрифта для кнопок */
+    background-color: #ff5722; /* Ярко-оранжевый фон */
+    color: #ffffff; /* Белый текст */
+    border: none;
+    padding: 15px; /* Увеличенные отступы */
+    margin: 5px 0;
+    width: 100%;
+    text-align: center;
+    border-radius: 5px; /* Полуокруглые углы */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.nav-button-1:hover {
+    background-color: #ff7043; /* Светло-оранжевый при наведении */
+    transform: scale(1.05);
+}
+
+.nav-button-1:active {
+    background-color: #f4511e; /* Темно-оранжевый при нажатии */
+    transform: scale(0.95);
+}
+
+/* Дополнительные кнопки */
+.nav-button-1 {
+    font-size: 16px; /* Увеличенный размер шрифта для кнопок */
+    background-color: #00bfff; /* Ярко-голубой фон */
+    color: #ffffff; /* Белый текст */
+    border: none;
+    padding: 15px; /* Увеличенные отступы */
+    margin: 5px 0;
+    width: 100%;
+    text-align: center;
+    border-radius: 5px; /* Полуокруглые углы */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.nav-button-1:hover {
+    background-color: #1e90ff; /* Голубой при наведении */
+    transform: scale(1.05);
+}
+
+.nav-button-1:active {
+    background-color: #007acc; /* Темно-голубой при нажатии */
+    transform: scale(0.95);
+}
+
+/* Медиазапросы для адаптивности */
+@media (max-width: 600px) {
+    body {
+        font-size: 1.2rem; /* Уменьшение размера шрифта на мобильных устройствах */
+    }
+
+    .header h1 {
+        font-size: 2rem; /* Уменьшение размера заголовка на мобильных */
+    }
+
+    .menu-button, .nav-button, .nav-button-1 {
+        padding: 10px; /* Уменьшение отступов на мобильных */
+    }
+}
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1 data-text="Ковалева Ирина Геннадьевна">Бегенчев Даат Аймамедович</h1>
+    </div>
+
+    <nav>
+        <img src="3-3.jpg" alt="Изображение" class="nav-image">
+        <div class="menu">
+            <button class="menu-button" onclick="toggleSubMenu('format')">Форматирование</button>
+            <button class="menu-button" onclick="toggleSubMenu('css')">CSS</button>
+            <button class="menu-button" onclick="OpenDOM()">DOM</button>
+            <button class="menu-button" onclick="OpenArray()">Кроссворд</button>
+            <button class="menu-button" onclick="OpenForm()">Формы</button>
+        </div>
+    </nav>
+
+    <div id="css" class="submenu">
+        <div class="flex-container">
+            <div class="nav-section">
+                <button class="nav-button-1" onclick="OpenStyleOptions()">Стилевые свойства</button>
+                <button class="nav-button-1" onclick="OpenMediaQuery()">Медиазапросы</button>
+                <button class="nav-button-1" onclick="OpenSelectors()">Селекторы</button>
+                <button class="nav-button-1" onclick="OpenFilters()">Фильтры</button>
+                <button class="nav-button-1" onclick="OpenAnimations()">Переходы</button>
+                <button class="nav-button-1" onclick="OpenFlex()">Flex</button>
+            </div>
+        </div>
+        
+        <div class="content-section">
+            <div id="content">
+                <div id="selectors" class="content-block">
+                    <h3>Селекторы</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="format" class="submenu">
+        <div class="flex-container">
+            <div class="nav-section">
+                <button class="nav-button" onclick="showContent('preformatted')">Предварительно отформатированный текст</button>
+                <button class="nav-button" onclick="showContent('quotes')">Цитаты</button>
+                <button class="nav-button" onclick="showContent('lists')">Списки</button>
+                <button class="nav-button" onclick="showContent('tables')">Таблицы</button>
+                <button class="nav-button" onclick="showContent('escape')">Escape-последовательности</button>
+                <button class="nav-button" onclick="showContent('bookmarks')">Закладки</button>
+                <button class="nav-button" onclick="showContent('widget')">Виджет</button>
+            </div>
+
+            <div class="content-section">
+                <div id="content">
+                    <div id="preformatted" class="content-block">
+                        <h3>Предварительно отформатированный текст</h3>
+                        <pre>
+                            Ветер шепчет нежно в кронах,
+                            Листья пляшут в ритме снов.
+                            Светит солнце, зреют зёрна,
+                            Счастье в каждом новом дне.
+                        </pre>
+                    </div>
+
+                    <div id="quotes" class="content-block">
+                        <h3>Цитаты</h3>
+                        <blockquote>
+                            "Смысл жизни в том, чтобы жить с смыслом." — Винсент ван Гог
+                        </blockquote>
+                        <blockquote>
+                            "Не бойтесь совершать ошибки. Они — это тот путь, который ведёт к успеху." — Мари Кондо                        </blockquote>
+                        <blockquote>
+                            "Кто не рискует, тот не пьет шампанское." — Румынская пословица
+                        </blockquote>
+                    </div>
+
+                    <div id="lists" class="content-block">
+                        <h3>Списки</h3>
+                        <h4>Нумерованный список машин</h4>
+                        <ol>
+                            <li>Машина 1: Марка, Год выпуска, Гос. номер</li>
+                            <li>Машина 2: Марка, Год выпуска, Гос. номер</li>
+                            <li>Машина 3: Марка, Год выпуска, Гос. номер</li>
+                            <li>Машина 4: Марка, Год выпуска, Гос. номер</li>
+                            <li>Машина 5: Марка, Год выпуска, Гос. номер</li>
+                            <li>Машина 6: Марка, Год выпуска, Гос. номер</li>
+                            <li>Машина 7: Марка, Год выпуска, Гос. номер</li>
+                            <li>Машина 8: Марка, Год выпуска, Гос. номер</li>
+                            <li>Машина 9: Марка, Год выпуска, Гос. номер</li>
+                            <li>Машина 10: Марка, Год выпуска, Гос. номер</li>
+                        </ol>
+
+                        <h4>Маркированный список</h4>
+                        <ul>
+                            <li>Элемент 1</li>
+                            <li>Элемент 2</li>
+                            <li>Элемент 3</li>
+                        </ul>
+
+                        <h4>Список определений</h4>
+                        <dl>
+                            <dt>Определение 1</dt>
+                            <dd>Описание определения 1.</dd>
+                            <dt>Определение 2</dt>
+                            <dd>Описание определения 2.</dd>
+                            <dt>Определение 3</dt>
+                            <dd>Описание определения 3.</dd>
+                        </dl>
+                    </div>
+
+                    <div id="tables" class="content-block">
+                        <h3>Таблицы</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Название</th>
+                                    <th>Автор</th>
+                                    <th>Год</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Книга 1</td>
+                                    <td>Автор 1</td>
+                                    <td>2001</td>
+                                </tr>
+                                <tr>
+                                    <td>Книга 2</td>
+                                    <td>Автор 2</td>
+                                    <td>2002</td>
+                                </tr>
+                                <tr>
+                                    <td>Книга 3</td>
+                                    <td>Автор 3</td>
+                                    <td>2003</td>
+                                </tr>
+                                <tr>
+                                    <td>Книга 4</td>
+                                    <td>Автор 4</td>
+                                    <td>2004</td>
+                                </tr>
+                                <tr>
+                                    <td>Книга 5</td>
+                                    <td>Автор 5</td>
+                                    <td>2005</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="3">Итого: 5 книг</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+
+                    <div id="escape" class="content-block">
+                        <h3>Escape-последовательности</h3>
+                        <pre>
+                            &lt;table&gt;
+                                &lt;tr&gt;
+                                    &lt;th&gt;Марка&lГод выпуска&gГос. номер                                    &lt;th&gt;Автор&lt;/th&gt;
+                                    &lt;th&gt;Год&lt;/th&gt;
+                                &lt;/tr&gt;
+                            &lt;/table&gt;
+                        </pre>
+                    </div>
+
+                    <div id="bookmarks" class="content-block">
+                        <h3>Закладки</h3>
+                        <p>
+                            <a href="#section1" style="color: #BB86FC;">Перейти к разделу 1</a><br>
+                            <a href="#section2" style="color: #BB86FC;">Перейти к разделу 2</a>
+                        </p>
+                        <h4 id="section1">Раздел 1</h4>
+                        <p>Содержимое раздела 1...</p>
+                        <h4 id="section2">Раздел 2</h4>
+                        <p>Содержимое раздела 2...</p>
+                    </div>
+
+                    <div id="widget" class="content-block">
+                        <h3>Виджет</h3>
+                        <details>
+                            <summary>Краткое изложение</summary>
+                            <p>Здесь находится дополнительная информация, которую можно скрыть или показать.</p>
+                        </details>
+                    </div>
+
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Бегенчев Даат Аймамедович. Все права защищены.</p>
+        <p>Email: example@gmail.com</p>
+    </footer>
+
+    <script>
+function toggleSubMenu(menuId) {
+    const formatSubmenu = document.getElementById("format");
+    const cssSubmenu = document.getElementById("css");
+
+    if (menuId === 'format') {
+        formatSubmenu.style.display = formatSubmenu.style.display === "none" || formatSubmenu.style.display === "" ? "block" : "none";
+        cssSubmenu.style.display = "none"; // Скрыть CSS подменю при открытии "Форматирование"
+        clearContent();
+    } else if (menuId === 'css') {
+        cssSubmenu.style.display = cssSubmenu.style.display === "none" || cssSubmenu.style.display === "" ? "block" : "none";
+        formatSubmenu.style.display = "none"; // Скрыть "Форматирование" подменю при открытии CSS
+        clearContent();
+    } else {
+        formatSubmenu.style.display = "none";
+        cssSubmenu.style.display = "none";
+        clearContent();
+    }
+}
+
+function showContent(contentId) {
+    const contents = document.querySelectorAll('.content-block');
+    contents.forEach(content => {
+        content.classList.remove('active');
+    });
+    const selectedContent = document.getElementById(contentId);
+    selectedContent.classList.add('active');
+}
+
+
+
+
+function clearContent() {
+    const contents = document.querySelectorAll('.content-block');
+    contents.forEach(content => {
+        content.classList.remove('active');
+    });
+}
+
+function OpenStyleOptions() {
+    window.location.href = 'style_options.html';
+}
+
+function OpenMediaQuery() {
+    window.location.href = 'mediaquery.html';
+}
+
+function OpenSelectors() {
+    window.location.href = 'Selectors.html';
+}
+
+function OpenFilters() {
+    window.location.href = 'filters.html';
+}
+
+function OpenAnimations() {
+    window.location.href = 'animation.html';
+}
+
+function OpenFlex() {
+    window.location.href = 'flex.html';
+}
+
+function OpenDOM() {
+    window.location.href = 'dom.html';
+}
+
+function OpenArray() {
+    window.location.href = 'array.html';
+}
+
+function OpenForm() {
+    window.location.href = 'form.html';
+}
+    </script>
+</body>
+
+</html>

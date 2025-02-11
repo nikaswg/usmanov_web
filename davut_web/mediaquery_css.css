@@ -1,0 +1,186 @@
+/* Общие стили */
+body {
+    font-family: 'Courier New', sans-serif; /* Заменён шрифт на Nunito */
+    margin: 0;
+    padding: 0;
+    background-color: #2e2e2e; /* Темно-серый фон */
+    color: #ffeb3b; /* Ярко-желтый текст */
+    font-size: 1.5rem; /* Увеличение базового размера шрифта */
+}
+
+.header {
+    text-align: center;
+    margin: 75px 0 60px; /* Увеличены отступы */
+}
+
+.header h1 {
+    font-family: 'Lobster', cursive; /* Новый готический прописной шрифт */
+    font-size: 6rem; /* Увеличенный размер заголовка */
+    color: #ff5722; /* Ярко-оранжевый */
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.7),
+                 3px 3px 0 rgba(255, 255, 255, 0.3);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    background-color: #444; /* Темно-серый фон для навигации */
+    padding: 15px 30px; /* Увеличенные отступы */
+    justify-content: space-between;
+}
+
+.menu {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+    gap: 1.5em;
+}
+
+.menu-button {
+    background-color: #ff5722; /* Ярко-оранжевый фон кнопок */
+    color: #ffffff;
+    border: none;
+    padding: 15px 30px; /* Увеличенные отступы */
+    font-size: 1.5rem; /* Увеличенный размер шрифта для кнопок */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    margin: 0 10px;
+}
+
+.menu-button:hover {
+    background-color: #ff7043; /* Светло-оранжевый при наведении */
+    transform: scale(1.05);
+}
+
+.menu-button:active {
+    background-color: #f4511e; /* Темно-оранжевый при нажатии */
+    transform: scale(0.95);
+}
+
+.menu-button-1 {
+    background-color: #ff5722; /* Ярко-оранжевый фон кнопок */
+    color: #ffffff;
+    border: none;
+    padding: 15px 30px; /* Увеличенные отступы */
+    font-size: 1.5rem; /* Увеличенный размер шрифта для кнопок */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    margin: 30px 0 0; /* Увеличены отступы */
+}
+
+.menu-button-1:hover {
+    background-color: #ff7043; /* Светло-оранжевый при наведении */
+    transform: scale(1.05);
+}
+
+.menu-button-1:active {
+    background-color: #f4511e; /* Темно-оранжевый при нажатии */
+    transform: scale(0.95);
+}
+
+.task, .task-1 {
+    margin: 30px; /* Увеличены отступы */
+    padding: 30px; /* Увеличенные отступы */
+    border: 1px solid #ccc;
+    background-color: #222; /* Темно-серый фон */
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 1.5rem; /* Увеличенный размер шрифта для задач */
+}
+
+.task:hover {
+    background-color: #333; /* Тёмный фон при наведении */
+    color: #1e90ff; /* Голубой текст при наведении */
+}
+
+.task-1:hover {
+    background-color: #1e90ff;
+    color: white;
+}
+
+.column-layout {
+    column-count: 1; /* Устанавливаем одну колонку */
+    column-gap: 0; /* Убираем промежуток между колонками */
+    padding: 0; /* Убираем отступы */
+    margin: 20px auto; /* Центрируем контейнер */
+    margin-left: 11px;
+}
+
+.column-layout p {
+    transition: color 0.3s; /* Плавный переход цвета */
+    margin: 20px; /* Отступы у абзацев */
+    font-size: 1.5rem; /* Увеличенный размер шрифта для абзацев */
+}
+
+.column-layout p:hover {
+    color: #1e90ff; /* Изменение цвета текста при наведении */
+}
+
+footer {
+    background-color: #444; /* Темно-серый фон */
+    text-align: center;
+    padding: 15px; /* Увеличенные отступы */
+    color: #ffeb3b; /* Ярко-желтый текст */
+}
+
+.toggle-button, .toggle-button-1 {
+    background-color: #ff5722; /* Ярко-оранжевый фон кнопок */
+    color: #ffffff;
+    border: none;
+    padding: 15px 30px; /* Увеличенные отступы */
+    font-size: 1.5rem; /* Увеличенный размер шрифта для кнопок */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    margin: 30px 0 0; /* Увеличены отступы */
+    margin-left: 30px;
+}
+
+.toggle-button:hover, .toggle-button-1:hover {
+    background-color: #ff7043; /* Светло-оранжевый при наведении */
+    transform: scale(1.05);
+}
+
+.toggle-button:active, .toggle-button-1:active {
+    background-color: #32cd32; /* Зеленый при нажатии */
+    transform: scale(0.95);
+}
+
+.toggle-button-1 {
+    margin-left: 30px;
+}
+
+/* Медиазапросы */
+@media (max-width: 600px) {
+    body {
+        font-size: 1.2rem; /* Уменьшение размера шрифта для всего текста */
+    }
+
+    .header h1 {
+        font-size: 4rem; /* Уменьшение размера заголовка */
+    }
+
+    .menu-button, .menu-button-1 {
+        font-size: 1.2rem; /* Уменьшение размера шрифта для кнопок меню */
+    }
+
+    .task {
+        font-size: 1.2rem; /* Уменьшение размера шрифта для задач */
+    }
+
+    .column-layout p {
+        font-size: 1.2rem; /* Уменьшение размера шрифта для абзацев в колонках */
+    }
+}
+
+@media (max-height: 500px) {
+    nav, footer {
+        padding: 5px;
+    }
+}

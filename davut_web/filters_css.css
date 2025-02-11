@@ -1,0 +1,223 @@
+/* Общие стили */
+body {
+    font-family: 'Courier New', sans-serif; /* Заменён шрифт на Nunito */
+    margin: 0;
+    padding: 0;
+    background-color: #2e2e2e; /* Темно-серый фон */
+    color: #ffeb3b; /* Ярко-желтый текст */
+}
+
+.header {
+    text-align: center;
+    margin: 75px 0 60px; /* Увеличены отступы */
+}
+
+.header h1 {
+    font-family: 'Lobster', cursive; /* Новый шрифт для заголовка */
+    font-size: 6rem; /* Увеличенный размер заголовка */
+    color: #ff5722; /* Ярко-оранжевый */
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.7), 
+                 3px 3px 0 rgba(255, 255, 255, 0.3);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    background-color: #444; /* Темно-серый фон для навигации */
+    padding: 15px 30px; /* Увеличенные отступы */
+    justify-content: space-between;
+}
+
+.menu {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+}
+
+.menu-button {
+    background-color: #ff5722; /* Ярко-оранжевый фон кнопок */
+    color: #ffffff;
+    border: none;
+    padding: 15px 30px; /* Увеличенные отступы */
+    font-size: 1.5rem; /* Увеличенный размер шрифта для кнопок */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    margin: 0 10px;
+}
+
+.menu-button:hover {
+    background-color: #ff7043; /* Светло-оранжевый при наведении */
+    transform: scale(1.05);
+}
+
+.menu-button:active {
+    background-color: #f4511e; /* Темно-оранжевый при нажатии */
+    transform: scale(0.95);
+}
+
+.content {
+    padding: 30px; /* Увеличенные отступы */
+}
+
+/* Объемная надпись */
+.text3d-wrap-2 {    
+    background-color: #2A2A2A; /* Темно-серый фон */
+    border-radius: 2rem;  
+    height: 260px;
+    overflow: hidden;
+    margin-bottom: 30px; /* Увеличены отступы снизу */
+} 
+
+.text3d-2 {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    height: 160px;
+    perspective: 2000px;
+    transform-style: preserve-3d;  
+}
+
+.text3d-layer-2 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transform: rotateY(20deg) rotateX(35deg) translateZ(0);
+    animation: text3d-anim-2 2s infinite alternate linear;
+    animation-fill-mode: forwards;  
+    animation-play-state: paused;
+}
+
+.text3d-layer-2:after {
+    font-family: Impact, Charcoal, sans-serif;
+    font-size: 100px; /* Увеличенный размер шрифта */
+    content: '3D текст';
+    letter-spacing: 2px;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 58px;
+    color: #FFF;
+    text-shadow: 4px 0 10px rgba(0, 0, 0, 0.13);
+}
+
+/* Применение глубины к слоям текста */
+.text3d-layer-2:nth-child(1):after { transform: translateZ(0px); }
+.text3d-layer-2:nth-child(2):after { transform: translateZ(-1.5px); }
+.text3d-layer-2:nth-child(3):after { transform: translateZ(-3px); }
+/* ... остальные уровни ... */
+.text3d-layer-2:nth-child(20):after { transform: translateZ(-28.5px); }
+
+.text3d-layer-2:nth-child(n+10):after {
+    -webkit-text-stroke: 3px rgba(0, 0, 0, 0.25);
+}
+
+.text3d-layer-2:nth-child(n+11):after {
+    -webkit-text-stroke: 15px #BFE2FF;
+    text-shadow: 6px 0 6px #00366b, 5px 5px 5px #002951, 0 6px 6px #00366b;
+}
+
+.text3d-layer-2:nth-child(n+12):after {
+    -webkit-text-stroke: 15px #2c353d;
+}
+
+.text3d-layer-2:last-child:after {
+    -webkit-text-stroke: 17px rgba(0, 0, 0, 0.1);
+}
+
+.text3d-layer-2:first-child:after {
+    color: #fff;
+    text-shadow: none;
+}
+
+.text3d-wrap-2:hover .text3d-layer-2 {
+    animation-play-state: running;
+}
+
+@media (max-width: 767px) {
+    .text3d-2 .text3d-layer-2:after {
+        font-size: 60px; /* Уменьшение размера шрифта на мобильных */
+    }
+}
+
+/* Буквица с тенями */
+.initial-letter {
+    font-size: 6em; /* Увеличенный размер буквицы */
+    float: left;
+    line-height: 1;
+    margin-right: 10px;
+    color: #ffeb3b; /* Ярко-желтый цвет для буквицы */
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5), 
+                 4px 4px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Наложение нескольких теней на текст */
+.shadow-text {
+    font-size: 3rem; /* Увеличенный размер шрифта */
+    text-shadow: 
+        1px 1px 0 rgba(0, 0, 0, 0.5),
+        2px 2px 0 rgba(255, 0, 0, 0.7),
+        3px 3px 0 rgba(0, 0, 255, 0.7);
+}
+
+/* Градиенты фона */
+.gradient-background-1 {
+    background: linear-gradient(145deg, #ff6ec4, #7873f5);
+    padding: 30px; /* Увеличенные отступы */
+    border-radius: 10px;
+    margin-bottom: 30px; /* Увеличены отступы снизу */
+}
+
+.gradient-background-2 {
+    background: linear-gradient(90deg, #ea00ff, #d0ff00);
+    padding: 30px; /* Увеличенные отступы */
+    border-radius: 10px;
+    margin-bottom: 30px; /* Увеличены отступы снизу */
+}
+
+.gradient-background-3 {
+    background: linear-gradient(180deg, #ff7e5f, #feb47b);
+    padding: 30px; /* Увеличенные отступы */
+    border-radius: 10px;
+    margin-bottom: 30px; /* Увеличены отступы снизу */
+}
+
+/* Фильтры для изображений */
+.filter1 {
+    filter: grayscale(100%);
+}
+
+.filter2 {
+    filter: blur(2px);
+}
+
+.filter3 {
+    filter: brightness(150%);
+}
+
+.text-with-initial {
+    font-size: 1.5em;
+    line-height: 1.5;
+}
+
+.text-with-initial::first-letter {
+    font-size: 6em; /* Увеличенный размер буквицы */
+    float: left;
+    line-height: 1;
+    margin-right: 10px;
+    color: #ffeb3b; /* Ярко-желтый цвет для буквицы */
+    text-shadow: 
+        2px 2px 0 rgba(0, 0, 0, 0.5), 
+        4px 4px 0 rgba(255, 255, 255, 0.3);
+}
+
+footer {
+    background-color: #444; /* Темно-серый фон */
+    text-align: center;
+    padding: 15px; /* Увеличенные отступы */
+    color: #ffeb3b; /* Ярко-желтый текст */
+}

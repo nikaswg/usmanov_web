@@ -1,0 +1,227 @@
+/* Общие стили */
+body {
+    font-family: 'Courier New', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2e2e2e; /* Темно-серый фон */
+    color: #ffeb3b; /* Ярко-желтый текст */
+}
+
+.header {
+    text-align: center;
+    margin: 75px 0 60px;
+}
+
+.header h1 {
+    font-family: 'Lobster', cursive;
+    font-size: 6rem;
+    color: #ff5722; /* Ярко-оранжевый */
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.7), 
+                 3px 3px 0 rgba(255, 255, 255, 0.3);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    background-color: #444; /* Темно-серый фон для навигации */
+    padding: 15px 30px;
+    justify-content: space-between;
+}
+
+.menu {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+}
+
+.menu-button {
+    background-color: #ff5722; /* Ярко-оранжевый фон кнопок */
+    color: #ffffff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    margin: 0 10px;
+}
+
+.menu-button:hover {
+    background-color: #ff7043; /* Светло-оранжевый при наведении */
+    transform: scale(1.1);
+}
+
+.menu-button:active {
+    background-color: #f4511e; /* Темно-оранжевый при нажатии */
+    transform: scale(0.95);
+}
+
+.content {
+    padding: 30px;
+    text-align: center;
+}
+
+.box {
+    border-style: solid;
+    border-width: 1px;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-color: #2196f3; /* Голубой фон */
+    transition: background-color 0.5s;
+}
+
+.box:hover {
+    background-color: #ffccbc; /* Светло-красный при наведении */
+    animation: bounce 0.5s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
+
+.pulse {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    background-color: rgb(255, 0, 85);
+}
+
+.pulse:hover {
+    animation: squash 1s infinite;
+}
+
+@keyframes squash {
+    0%, 100% {
+        transform: scaleY(1);
+    }
+    50% {
+        transform: scaleY(0.5);
+    }
+}
+
+.slide {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-color: #f44336; /* Красный фон */
+    position: relative;
+    margin: 20px;
+}
+
+.slide:hover {
+    animation: fade 0.5s infinite;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+        transform: translateX(50px);
+    }
+}
+
+.transform-row {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.scale, .move, .rotate, .skew {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.scale {
+    background-color: #ff9800; /* Оранжевый фон */
+}
+
+.scale:hover {
+    animation: rotate-scale 0.5s forwards;
+}
+
+@keyframes rotate-scale {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    100% {
+        transform: scale(1.5) rotate(360deg);
+    }
+}
+
+.move {
+    background-color: #03a9f4; /* Голубой фон */
+    position: relative;
+}
+
+.move:hover {
+    animation: move-animation 0.5s forwards;
+}
+
+@keyframes move-animation {
+    0% {
+        left: 0;
+    }
+    50% {
+        left: 50px;
+    }
+    100% {
+        left: 0;
+    }
+}
+
+.rotate {
+    background-color: #9c27b0; /* Фиолетовый фон */
+}
+
+.rotate:hover {
+    animation: rotate-animation 0.5s forwards;
+}
+
+@keyframes rotate-animation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-180deg);
+    }
+}
+
+.skew {
+    background-color: #4caf50; /* Зеленый фон */
+}
+
+.skew:hover {
+    animation: skew-animation 0.5s forwards;
+}
+
+@keyframes skew-animation {
+    0% {
+        transform: skew(0deg, 0deg);
+    }
+    100% {
+        transform: skew(-20deg, 10deg);
+    }
+}
+
+footer {
+    background-color: #444; /* Темно-серый фон */
+    text-align: center;
+    padding: 15px;
+    color: #ffeb3b; /* Ярко-желтый текст */
+}

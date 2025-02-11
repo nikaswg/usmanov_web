@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Объемная Надпись</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&family=UnifrakturCook&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="animation_css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="header">
+        <h1>Переходы</h1>
+    </div>
+
+    <nav>
+        <div class="menu">
+            <button class="menu-button" onclick="GoToHeadPage()">Главная</button>
+            <button class="menu-button" onclick="GoToFilters()">Перейти к странице "Фильтры"</button>
+            <button class="menu-button" onclick="GoToFlex()">Перейти к странице "Flex"</button>
+        </div>
+    </nav>
+
+</head>
+
+    <div class="content">
+        <h2>Первая анимашка (Поворот):</h2>
+        <div class="box"></div>
+
+        <h2>Вторая анимашка (Пульсация):</h2>
+        <div class="pulse"></div>
+
+        <h2>Третья анимашка (Сдвиг):</h2>
+        <div class="slide"></div>
+
+        <h2>2-D преобразования:</h2>
+        <div class="transform-row">
+            <div class="scale"></div>
+            <div class="move"></div>
+            <div class="rotate"></div>
+            <div class="skew"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Ковалева Ирина Геннадьевна. Все права защищены.</p>
+        <p>Email: example@gmail.com</p>
+    </footer>
+</body>
+
+<script>
+
+    function GoToHeadPage() {
+        window.location.href = '1.html';
+    }
+
+    function GoToFilters() {
+        window.location.href = 'filters.html';
+    }
+
+    function GoToFlex() {
+        window.location.href = 'flex.html'
+    }
+</script>
+</html>
+
+
+
