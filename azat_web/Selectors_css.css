@@ -1,0 +1,136 @@
+/* Общие стили */
+body {
+    font-family: 'Courier New', sans-serif; /* Заменён шрифт на Nunito */
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a; /* Темно-серый фон */
+    color: #00bfff; /* Светло-голубой текст */
+}
+
+/* Заголовок */
+.header {
+    text-align: center;
+    margin: 75px 0 60px; /* Увеличены отступы */
+}
+
+.header h1 {
+    font-family: 'Lobster', cursive; /* Новый готический прописной шрифт */
+    font-size: 6rem; /* Увеличенный размер заголовка */
+    color: #00bfff; /* Ярко-голубой */
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.7),
+                 3px 3px 0 rgba(255, 255, 255, 0.3);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    background-color: #333; /* Темно-серый фон для навигации */
+    padding: 15px 30px; /* Увеличенные отступы */
+    justify-content: space-between;
+}
+
+.menu {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+}
+
+.menu-button {
+    background-color: #00bfff; /* Ярко-голубой фон кнопок */
+    color: #ffffff; /* Белый текст */
+    border: none;
+    padding: 15px 30px; /* Увеличенные отступы */
+    font-size: 1.5rem; /* Увеличенный размер шрифта для кнопок */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    margin: 0 10px;
+}
+
+.menu-button:hover {
+    background-color: #1e90ff; /* Голубой при наведении */
+    transform: scale(1.05);
+}
+
+.menu-button:active {
+    background-color: #007acc; /* Темно-голубой при нажатии */
+    transform: scale(0.95);
+}
+
+.content {
+    padding: 30px; /* Увеличенные отступы */
+}
+
+/* Задача 1: Блочный элемент с усечением текста */
+.text-block {
+    width: 100%;
+    max-width: 1070px;
+    padding: 30px; /* Увеличенные отступы */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Задача 2: Селекторы атрибутов */
+.example[data-type="example"] {
+    background-color: hsl(200, 100%, 50%);
+}
+
+.example[data-type^="ex"] {
+    border: 2px solid hsl(120, 100%, 50%);
+}
+
+.example[data-type*="am"] {
+    color: hsl(60, 100%, 50%);
+}
+
+.example[data-type$="ple"] {
+    font-weight: bold;
+}
+
+/* Задача 3: Структурные псевдоклассы */
+.group div:first-child {
+    color: peru;
+}
+
+.group div:last-child {
+    color: rebeccapurple;
+}
+
+.group div:nth-child(odd) {
+    background-color: hsl(289, 100%, 50%);
+}
+
+.group div:nth-child(even) {
+    background-color: hsl(48, 100%, 50%);
+}
+
+.group div:nth-child(3n+1) {
+    font-style: italic;
+}
+
+/* Задача 4: 3 способа отображения с border-radius */
+.rounded1 {
+    border-radius: 10px;
+    background-color: hsla(240, 100%, 50%, 0.5);
+}
+
+.rounded2 {
+    border-radius: 50%;
+    background-color: hsla(60, 100%, 50%, 0.5);
+}
+
+.rounded3 {
+    border-radius: 30% 60%;
+    background-color: hsla(0, 100%, 50%, 0.5);
+}
+
+footer {
+    background-color: #333; /* Темно-серый фон */
+    text-align: center;
+    padding: 15px; /* Увеличенные отступы */
+    color: #00bfff; /* Светло-голубой текст */
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Селекторы</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&family=UnifrakturCook&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Selectors_css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="header">
+        <h1>Селекторы</h1>
+    </div>
+
+    <nav>
+        <div class="menu">
+            <button class="menu-button" onclick="GoToHeadPage()">Главная</button>
+            <button class="menu-button" onclick="GoToMediaquery()">Перейти к странице "Медиазапросы"</button>
+            <button class="menu-button" onclick="GoToFilters()">Перейти к странице "Фильтры"</button>
+        </div>
+    </nav>
+
+    <div class="content">
+        <div class="text-block">
+            Это пример большого текста, который будет усечен с добавлением многоточия, если пространство не позволяет отобразить его полностью.
+        </div>
+
+        <div class="example" data-type="example">Пример с атрибутом</div>
+
+        <div class="group">
+            <div>Первый элемент</div>
+            <div>Второй элемент</div>
+            <div>Третий элемент</div>
+            <div>Четвертый элемент</div>
+            <div>Пятый элемент</div>
+        </div>
+
+        <div class="rounded1">Rounded 1</div>
+        <div class="rounded2">Rounded 2</div>
+        <div class="rounded3">Rounded 3</div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Ковалева Ирина Геннадьевна. Все права защищены.</p>
+        <p>Email: example@gmail.com</p>
+    </footer>
+
+    <script>
+
+        function GoToHeadPage() {
+            window.location.href = '1.html';
+        }
+
+        function GoToMediaquery() {
+            window.location.href = 'mediaquery.html';
+        }
+
+        function GoToFilters() {
+            window.location.href = 'filters.html';
+        }
+    </script>
+</body>
+</html>
