@@ -6,19 +6,19 @@
     <title>Японский кроссворд</title>
     <style>
 body {
-    font-family: 'Courier New', sans-serif; /* Изменяем шрифт на Roboto */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 150vh;
-    margin: 0;
-    background-color: #f0f8ff; /* Бело-голубой фон */
-    color: #2e8b57; /* Зеленый текст */
-}
+            font-family: 'Courier New', sans-serif; /* Шрифт */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 150vh;
+            margin: 0;
+            background-color: #2e2e2e; /* Темно-серый фон */
+            color: #ffeb3b; /* Ярко-желтый текст */
+        }
 
-.menu-button {
-            background-color: #2e8b57; /* Зеленый фон кнопок */
-            color: #ffffff;
+        .menu-button {
+            background-color: #ff5722; /* Ярко-оранжевый фон кнопок */
+            color: #ffffff; /* Белый текст */
             border: none;
             padding: 15px 30px; /* Увеличенные отступы */
             text-align: center;
@@ -31,115 +31,114 @@ body {
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
             margin: 0 10px; /* Отступ между кнопками */
         }
-        
+
         .menu-button:hover {
-            background-color: #1e90ff; /* Голубой при наведении */
+            background-color: #ff7043; /* Светло-оранжевый при наведении */
             transform: scale(1.05);
         }
-        
+
         .menu-button:active {
-            background-color: #32cd32; /* Зеленый при нажатии */
+            background-color: #f4511e; /* Темно-оранжевый при нажатии */
             transform: scale(0.95);
         }
 
+        .crossword-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; 
+        }
 
-.crossword-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; 
-}
+        .grid-title {
+            font-size: 2rem; /* Размер шрифта заголовка */
+            color: #BB86FC; /* Цвет заголовка */
+            margin-bottom: 20px; /* Отступ снизу */
+            text-align: center; /* Центрирование заголовка */
+            text-shadow: 
+                2px 2px 0 rgba(0, 0, 0, 0.7), 
+                3px 3px 0 rgba(255, 255, 255, 0.3); /* Тень для заголовка */
+        }
 
-.grid-title {
-    font-size: 2rem; /* Размер шрифта заголовка */
-    color: #BB86FC; /* Цвет заголовка */
-    margin-bottom: 20px; /* Отступ снизу */
-    text-align: center; /* Центрирование заголовка */
-    text-shadow: 
-        2px 2px 0 rgba(0, 0, 0, 0.7), 
-        3px 3px 0 rgba(255, 255, 255, 0.3); /* Тень для заголовка */
-}
+        .hints-row, .hints-column {
+            display: flex;
+        }
 
-.hints-row, .hints-column {
-    display: flex;
-}
+        .hints-row .hint, .hints-column .hint {
+            width: 48.5px;
+            height: 48.5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            background-color: #ffffff; /* Фон для подсказок */
+            border: 1px solid #ff5722; /* Цвет рамки */
+            text-align: center;
+            line-height: 1.2;
+            color: #2e8b57; /* Цвет текста подсказок */
+        }
 
-.hints-row .hint, .hints-column .hint {
-    width: 48.5px;
-    height: 48.5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    background-color: #ffffff; /* Темный фон для подсказок */
-    border: 1px solid #2e8b57; /* Цвет рамки */
-    text-align: center;
-    line-height: 1.2;
-    color: #2e8b57; /* Цвет текста подсказок */
-}
+        .hints-row {
+            flex-direction: row;
+            align-items: center;
+            margin-left: auto; 
+        }
 
-.hints-row {
-    flex-direction: row;
-    align-items: center;
-    margin-left: auto; 
-}
+        .hints-column {
+            flex-direction: column;
+            justify-content: flex-end; 
+            align-items: center; 
+        }
 
-.hints-column {
-    flex-direction: column;
-    justify-content: flex-end; 
-    align-items: center; 
-}
+        .grid-container {
+            display: flex;
+            align-items: flex-start; 
+        }
 
-.grid-container {
-    display: flex;
-    align-items: flex-start; 
-}
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(15, 50px);
+            grid-template-rows: repeat(15, 50px);    
+        }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(15, 50px);
-    grid-template-rows: repeat(15, 50px);    
-}
+        .cell {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            border: 1px solid #ff5722; /* Цвет рамки ячеек */
+            background-color: #ffffff; /* Фон ячеек */
+            cursor: pointer;
+        }
 
-.cell {
-    position: relative;
-    width: 50px;
-    height: 50px;
-    border: 1px solid #2e8b57; /* Цвет рамки ячеек */
-    background-color: #ffffff; /* Темный фон ячеек */
-    cursor: pointer;
-}
+        .cell input[type="checkbox"] {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
 
-.cell input[type="checkbox"] {
-    position: absolute;
-    opacity: 0;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-}
+        .cell input[type="checkbox"]:checked + label {
+            background-color: #2e8b57; /* Цвет при выборе */
+        }
 
-.cell input[type="checkbox"]:checked + label {
-    background-color: #2e8b57; /* Цвет при выборе */
-}
+        .black {
+            background-color: #000;
+        }
 
-.black {
-    background-color: #000;
-}
+        .cell label {
+            display: block;
+            width: 100%;
+            height: 100%;
+            color: #ffffff; /* Цвет текста в ячейках */
+            transition: background-color 0.3s, color 0.3s; /* Плавный переход для фона и текста */
+        }
 
-.cell label {
-    display: block;
-    width: 100%;
-    height: 100%;
-    color: #ffffff; /* Цвет текста в ячейках */
-    transition: background-color 0.3s, color 0.3s; /* Плавный переход для фона и текста */
-}
+        .cell:hover {
+            background-color: #333; /* Цвет фона при наведении */
+            color: #ffeb3b; /* Цвет текста при наведении */
+        }  
 
-.cell:hover {
-    background-color: #333; /* Цвет фона при наведении */
-    color: #2e8b57; /* Цвет текста при наведении */
-}  
-
-.header {
+        .header {
             text-align: center;
             position: relative;
             margin-top: 50px;
@@ -147,15 +146,14 @@ body {
         }
 
         .header h1 {
-            font-family: 'UnifrakturCook', cursive;
+            font-family: 'Lobster', cursive;
             font-size: 4rem;
-            color: #2e8b57;
+            color: #ff5722; /* Ярко-оранжевый */
             text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.7),
                 3px 3px 0 rgba(255, 255, 255, 0.3);
             z-index: 1;
             position: relative;
         }
-
 </style>
 </head>
 <body>

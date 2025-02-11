@@ -8,130 +8,130 @@
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <title>Объединённый HTML файл с анимацией</title>
     <style>
-body {
-    font-family: 'Courier New', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f8ff;
-    color: #2e8b57;
-}
+        body {
+            font-family: 'Courier New', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #2e2e2e; /* Измененный фон */
+            color: #ffeb3b; /* Ярко-желтый текст */
+        }
 
-.header {
-    text-align: center;
-    margin: 75px 0 60px;
-}
+        .header {
+            text-align: center;
+            margin: 75px 0 60px;
+        }
 
-.header h1 {
-    font-family: 'Lobster', cursive;
-    font-size: 6rem;
-    color: #1e90ff;
-    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.7), 
-                 3px 3px 0 rgba(255, 255, 255, 0.3);
-}
+        .header h1 {
+            font-family: 'Lobster', cursive;
+            font-size: 6rem;
+            color: #ff5722; /* Ярко-оранжевый */
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.7), 
+                         3px 3px 0 rgba(255, 255, 255, 0.3);
+        }
 
-nav {
-    display: flex;
-    align-items: center;
-    background-color: #e0f7fa;
-    padding: 15px 30px;
-    justify-content: space-between;
-}
+        nav {
+            display: flex;
+            align-items: center;
+            background-color: #444; /* Темно-серый фон для навигации */
+            padding: 15px 30px;
+            justify-content: space-between;
+        }
 
-.menu {
-    display: flex;
-    flex-grow: 1;
-    justify-content: space-around;
-}
+        .menu {
+            display: flex;
+            flex-grow: 1;
+            justify-content: space-around;
+        }
 
-.menu-button {
-    background-color: #2e8b57;
-    color: #ffffff;
-    border: none;
-    padding: 15px 30px;
-    font-size: 1.5rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    margin: 0 10px;
-}
+        .menu-button {
+            background-color: #ff5722; /* Ярко-оранжевый фон кнопок */
+            color: #ffffff; /* Белый текст */
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            margin: 0 10px;
+        }
 
-.menu-button:hover {
-    background-color: #1e90ff;
-    transform: scale(1.1);
-}
+        .menu-button:hover {
+            background-color: #ff7043; /* Светло-оранжевый при наведении */
+            transform: scale(1.05);
+        }
 
-.menu-button:active {
-    background-color: #32cd32;
-    transform: scale(0.95);
-}
+        .menu-button:active {
+            background-color: #f4511e; /* Темно-оранжевый при нажатии */
+            transform: scale(0.95);
+        }
 
-.content {
-    padding: 20px;
-    text-align: center;
-}
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
 
-.transform-row {
-    display: flex;
-    justify-content: center;
-    gap: 20px; /* Отступы между коробочками */
-    margin: 20px 0;
-}
+        .transform-row {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Отступы между коробочками */
+            margin: 20px 0;
+        }
 
-.box {
-    border-style: solid;
-    border-width: 0px;
-    width: 150px;
-    height: 150px;
-    background-color: #ee00ff;
-    transition: width 0.5s, height 0.5s, background-color 0.5s, transform 0.5s;
-}
+        .box {
+            border-style: solid;
+            border-width: 0px;
+            width: 150px;
+            height: 150px;
+            background-color: #ee00ff; /* Ярко-розовый */
+            transition: width 0.5s, height 0.5s, background-color 0.5s, transform 0.5s;
+        }
 
-.box:hover {
-    background-color: #ffcccc;
-    width: 200px;
-    height: 200px;
-    transform: rotate(180deg);
-}
+        .box:hover {
+            background-color: #ffcccc; /* Светло-красный при наведении */
+            width: 200px;
+            height: 200px;
+            transform: rotate(180deg);
+        }
 
-.hidden {
-    display: none;
-}
+        .hidden {
+            display: none;
+        }
 
-.animated-text {
-    font-size: 2rem;
-    color: #2e8b57;
-    position: relative;
-    display: inline-block;
-    white-space: nowrap;
-    margin-bottom: 20px; /* Отступ под анимированным текстом */
-}
+        .animated-text {
+            font-size: 2rem;
+            color: #2e8b57; /* Зеленый текст */
+            position: relative;
+            display: inline-block;
+            white-space: nowrap;
+            margin-bottom: 20px; /* Отступ под анимированным текстом */
+        }
 
-@keyframes drawZ {
-    0% {
-        left: 200px; /* Влево */
-        top: 100px;
-    }
-    33% {
-        left: 0px; /* Вниз по диагонали */
-        top: 100px; /* Увеличиваем на 100px */
-    }
-    66% {
-        left: 200px; /* Вправо */
-        top: 0;
-    }
-    99% {
-        left: 0;
-        top: 0;
-    }
-}
+        @keyframes drawZ {
+            0% {
+                left: 0px; /* Влево */
+                top: 0px;
+            }
+            33% {
+                left: 100px; /* Вниз по диагонали */
+                top: 0px; /* Увеличиваем на 100px */
+            }
+            66% {
+                left: 0px; /* Вправо */
+                top: 100px;
+            }
+            99% {
+                left: 100px;
+                top: 100px;
+            }
+        }
 
-footer {
-    background-color: #e0f7fa; /* Светлый фон */
-    text-align: center;
-    padding: 15px; /* Увеличенные отступы */
-    color: #2e8b57; /* Зеленый текст */
-}
+        footer {
+            background-color: #444; /* Темно-серый фон */
+            text-align: center;
+            padding: 15px; /* Увеличенные отступы */
+            color: #ffeb3b; /* Ярко-желтый текст */
+        }
     </style>
 </head>
 <body>
@@ -168,7 +168,7 @@ footer {
     </div>
 
     <footer>
-        <p>&copy; 2024 Ковалева Ирина Геннадьевна. Все права защищены.</p>
+        <p>&copy; 2024 Бегенчев Даат Аймамедович. Все права защищены.</p>
         <p>Email: example@gmail.com</p>
     </footer>
 
@@ -270,4 +270,4 @@ footer {
         });
     </script>
 </body>
-</html>
+</html>s
